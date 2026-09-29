@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insight Landing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.0/air-datepicker.min.css" />
+
+    <style>
+      :root {
+        --color-primary: #e94e14;
+        --color-white: #ffffff;
+        --color-green: #056047;
+        --color-black-90: #252525;
+        --color-black-70: #565656;
+        --color-black-40: #9e9e9e;
+        --color-black-30: #868686;
+        --fs-section-title: 36px;
+      }
+
+      /* overide default classes styilng */
+      html body.coreCSB,
+      body {
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      html body.coreCSB .btn,
+      body .btn {
+        font-family: 'Roboto', sans-serif !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+
+      .outershell a.c-btn--primary {
+        color: var(--color-white) !important;
+      }
+      .outershell a.c-btn--primary:hover {
+        text-decoration: none;
+        filter: brightness(90%);
+      }
+      .outershell a.c-btn--transparent {
+        color: var(--color-primary) !important;
+      }
+      .outershell a.c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      #innershell {
+        width: 94%;
+        max-width: 1238px;
+      }
+      .inner {
+        max-width: none;
+      }
+      #content > .inner > div {
+        margin-bottom: 24px;
+      }
+      .searchwell {
+        padding: 24px;
+        border-radius: 32px;
+      }
+      .searchwell > form {
+        max-width: 1064px;
+        margin: 0 auto !important;
+      }
+      .searchwell > form > .container-fluid {
+        padding: 0;
+      }
+
+      #content ul,
+      #content ol {
+        list-style-position: initial;
+        padding-left: 0;
+      }
+      /* ------------------------------- */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .c-section-title {
+        font-size: clamp(24px, 2.65vw, 36px);
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+        line-height: 1.2;
+      }
+      .c-section-title .--highlight {
+        color: var(--color-green) !important;
+      }
+
+      .c-section-item {
+        margin-bottom: 48px;
+      }
+
+      .c-list-nostyle {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .c-btn {
+        outline: none;
+        border: 1px solid transparent !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .c-btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+      .c-btn--primary:hover {
+        filter: brightness(90%);
+      }
+
+      .c-btn--transparent {
+        color: var(--color-primary);
+        background-color: transparent;
+      }
+      .c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      .c-btn--ghost {
+        background: transparent;
+        border-color: var(--color-white) !important;
+        color: var(--color-white);
+      }
+      .c-btn--ghost:hover {
+        background-color: var(--color-black-80);
+      }
+
+      .c-btn--banner {
+        width: fit-content;
+        padding: 8px 12px;
+        margin-top: 20px;
+      }
+
+      .c-btn--dropdown {
+        max-width: none;
+        justify-content: space-between;
+        padding: 16px;
+        font-weight: 700;
+        color: var(--color-black-90);
+      }
+      .c-btn--dropdown:hover {
+        text-decoration: none;
+      }
+
+      .c-media-cover > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .c-media-contain > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .tab-nav {
+        overflow-x: auto;
+        margin-bottom: 40px;
+      }
+
+      .tab-nav-list {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+        margin: 0 auto;
+      }
+
+      .tab-nav-btn {
+        height: 100%;
+        border-radius: 0;
+        padding: 6px 10px;
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--color-black-70);
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      .tab-nav-btn:hover {
+        text-decoration: none;
+      }
+
+      .tab-nav-btn.is-active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary) !important;
+      }
+
+      .tab-nav-content {
+        display: none;
+      }
+      .tab-nav-content.is-active {
+        display: block;
+      }
+
+      .c-form-input {
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: 1px solid #b6b6b6;
+        box-shadow: 0px 1px 0px 0px #0000001a;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-black-70) !important;
+      }
+      .c-form-input.--block {
+        width: 100%;
+      }
+      .c-form-input::placeholder {
+        color: #868686;
+      }
+
+      .c-dropdown-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: all 0.4s ease;
+      }
+      .c-dropdown-content > div {
+        overflow: hidden;
+      }
+      .c-dropdown-content-inner {
+        padding: 0 16px 16px;
+      }
+
+      .js-dropdown {
+        border-radius: 8px;
+        background-color: var(--color-white);
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        transition: all 0.4s ease;
+      }
+      .js-dropdown.is-active {
+        background-color: #eeeeee;
+      }
+      .js-dropdown-btn {
+        transition: all 0.4s ease;
+      }
+      .js-dropdown.is-active .js-dropdown-btn {
+        padding-bottom: 6px;
+        color: var(--color-primary);
+      }
+      .js-dropdown.is-active .js-dropdown-content {
+        grid-template-rows: 1fr;
+      }
+
+      .js-loadmore-item {
+        display: none;
+      }
+      .js-loadmore-btn.is-hide {
+        display: none;
+      }
+
+      /* custom styling */
+      .post-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 16px 64px;
+        margin-bottom: 40px;
+      }
+
+      .post-header-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 12px 24px;
+      }
+
+      .filter-item {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+        margin: 0;
+        padding: 12px 20px;
+        border: 1px solid var(--color-black-30);
+        border-radius: 6px;
+        font-size: 16px;
+        color: var(--color-black-30);
+        cursor: pointer;
+      }
+      .filter-item.--category {
+        appearance: none;
+        outline: none;
+        line-height: 24px;
+        background: url('https://rmkcdn.successfactors.com/feaf7fda/fde71ab8-5e10-4b0a-9354-0.svg') no-repeat center
+          right 20px;
+        padding-right: 56px;
+        color: var(--color-black-30) !important;
+      }
+
+      .filter-item-input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: var(--color-black-30) !important;
+        cursor: pointer;
+      }
+      .filter-item-input::placeholder {
+        font-size: 16px;
+        color: var(--color-black-30) !important;
+      }
+
+      .filter-item-icon {
+        max-width: 24px;
+        height: 24px;
+        aspect-ratio: 1;
+      }
+
+      .post-header-btn {
+        width: fit-content;
+      }
+
+      .post-list {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-content: center;
+        gap: 40px 34px;
+      }
+
+      .post-list-item {
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        background-color: var(--color-white);
+        overflow: clip;
+      }
+
+      .post-list.--highlight-style .post-list-item {
+        all: unset;
+      }
+
+      .post-list.--highlight-style .post-list-item-wrapper {
+        display: flex;
+        gap: 16px;
+        height: 100%;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-wrapper {
+        display: block;
+      }
+
+      .post-list-item-img {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 284 / 160;
+      }
+
+      .post-list.--highlight-style .post-list-item-img {
+        width: auto;
+        height: 100%;
+        aspect-ratio: 210 / 120;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 620 / 350;
+        margin-bottom: 12px;
+      }
+
+      .post-list-item-img-content {
+        width: 100%;
+        height: 100%;
+      }
+
+      .post-list-item-badge {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        display: block;
+        padding: 4px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--color-primary);
+        background-color: #fae0be;
+        color: var(--color-primary);
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .post-list.--highlight-style .post-list-item-badge {
+        display: none;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-badge {
+        display: block;
+      }
+
+      .post-list-item-detail {
+        padding: 16px;
+      }
+
+      .post-list.--insight .post-list-item-detail {
+        padding: 20px 16px;
+      }
+
+      .post-list.--highlight-style .post-list-item-detail {
+        padding: 0;
+      }
+
+      .post-list-item-detail-head {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 16px;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-detail-head {
+        flex-direction: row;
+        gap: 24px;
+      }
+
+      .post-list-item-title {
+        display: -webkit-box;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.25;
+      }
+
+      .post-list.--insight .post-list-item-title {
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-title {
+        font-size: 22px;
+        line-height: 30px;
+      }
+
+      .post-list-item-price {
+        position: relative;
+        display: block;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.25;
+        color: var(--color-green);
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-price {
+        font-size: 22px;
+        line-height: 30px;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-price::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-20px, -50%);
+        width: 16px;
+        height: 1px;
+        background-color: #000;
+      }
+
+      .post-list-item-detail-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-detail-body {
+        flex-direction: row;
+      }
+
+      .post-list-item-date,
+      .post-list-item-place {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .post-list-item-date > p,
+      .post-list-item-place > p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.25;
+        color: var(--color-black-70);
+      }
+
+      .post-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+      }
+
+      .post-page-control {
+        display: flex;
+        gap: 8px;
+      }
+
+      .post-page-control-btn {
+        width: 44px;
+        padding: 10px;
+        border-color: var(--color-black-40) !important;
+        cursor: not-allowed;
+      }
+      .post-page-control-btn.is-active {
+        border-color: var(--color-primary) !important;
+        background-color: var(--color-primary) !important;
+        cursor: pointer;
+      }
+
+      .post-page-control-btn:disabled img.icon-active {
+        display: none;
+      }
+      .post-page-control-btn:disabled img.icon-disable {
+        display: block;
+      }
+
+      .post-page-control-btn.is-active img.icon-active {
+        display: block;
+      }
+      .post-page-control-btn.is-active img.icon-disable {
+        display: none;
+      }
+
+      .post-page-control-input {
+        width: 44px;
+        padding: 10px;
+        text-align: center;
+        font-size: 16px;
+        border-color: var(--color-black-90) !important;
+        color: var(--color-black-90);
+        cursor: default;
+      }
+
+      .post-page-total {
+        color: var(--color-black-70);
+      }
+
+      .c-footer {
+        padding: 32px 16px;
+      }
+
+      .footer-logo {
+        height: 107px;
+        max-width: 152px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu-title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+      .footer-menu-title > h1 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-black-30);
+      }
+      .footer-menu-title-line {
+        flex: 1;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        row-gap: 24px;
+      }
+
+      .footer-cat {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+      }
+
+      .outershell a.footer-cat-title {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.2;
+      }
+
+      .footer-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        margin-top: 16px;
+      }
+
+      .outershell .footer-list-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 200px;
+        width: fit-content;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        color: #8d8d8d !important;
+        line-height: 1.6;
+      }
+      .outershell .footer-list-title:hover {
+        text-decoration: underline;
+      }
+
+      .outershell .footer-list-btn {
+        width: fit-content;
+        max-width: none;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .footer-social-item > a {
+        display: block;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+
+      .footer-bottom * {
+        font-size: 12px;
+      }
+
+      .footer-bottom a {
+        display: block;
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom-left {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px 10px;
+        font-weight: 700;
+        color: #8d8d8d !important;
+      }
+
+      .footer-line {
+        display: flex;
+      }
+      .footer-line-item {
+        flex: 1;
+        height: 6px;
+        background-color: #ffc629;
+      }
+      .footer-line-item.--center {
+        flex: 2;
+        background-color: var(--color-primary);
+      }
+
+      @media screen and (min-width: 480px) {
+        .post-header-filter {
+          flex-direction: row;
+        }
+
+        .filter-item {
+          flex-basis: 50%;
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          justify-content: flex-start;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .post-header {
+          align-items: center;
+          flex-direction: row;
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .post-list.--highlight-style {
+          gap: 34px 40px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .post-list.--highlight-style .post-list-item:nth-child(1) {
+          grid-row: span 3 / span 3;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="c-section-item">
+        <div class="post-header">
+          <h1 class="c-section-title post-header-title">Insights</h1>
+          <div class="post-header-filter">
+            <label for="inputDate" class="filter-item --date">
+              <input
+                class="filter-item-input --date js-datepicker"
+                id="inputDate"
+                type="text"
+                placeholder="Date"
+                autocomplete="off"
+                readonly
+              />
+              <div class="filter-item-icon">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+              </div>
+            </label>
+            <select
+              name="category"
+              id="inputCategory"
+              class="filter-item --category js-catpicker"
+              onchange="onCatPickerChange(this)"
+            >
+              <option value="" selected>Category</option>
+              <!-- auto generate -->
+            </select>
+          </div>
+        </div>
+
+        <ul class="c-list-nostyle post-list --insight js-post-list">
+          <!-- auto generate -->
+        </ul>
+
+        <div class="post-page js-pagination">
+          <div class="post-page-control">
+            <button
+              onclick="onPrevBtnClick()"
+              class="c-btn c-btn--ghost post-page-control-btn --prev js-pagination-prev"
+            >
+              <img
+                class="icon-disable"
+                src="https://rmkcdn.successfactors.com/feaf7fda/074e3ac7-adc2-4d8f-a4ed-7.svg"
+                alt=""
+              />
+              <img
+                style="transform: rotate(180deg)"
+                class="icon-active"
+                src="https://rmkcdn.successfactors.com/feaf7fda/e77504e7-871b-4493-b1b9-8.svg"
+                alt=""
+              />
+            </button>
+            <input
+              type="text"
+              class="c-btn c-btn--ghost post-page-control-input js-pagination-number"
+              readonly
+              value="1"
+            />
+            <button
+              onclick="onNextBtnClick()"
+              class="c-btn c-btn--ghost post-page-control-btn --next js-pagination-next"
+            >
+              <img
+                class="icon-active"
+                src="https://rmkcdn.successfactors.com/feaf7fda/e77504e7-871b-4493-b1b9-8.svg"
+                alt=""
+              />
+              <img
+                style="transform: rotate(180deg)"
+                class="icon-disable"
+                src="https://rmkcdn.successfactors.com/feaf7fda/074e3ac7-adc2-4d8f-a4ed-7.svg"
+                alt=""
+              />
+            </button>
+          </div>
+          <p class="post-page-total js-pagination-total"></p>
+        </div>
+      </section>
+
+      <section class="c-footer">
+        <div class="footer-logo c-media-cover">
+          <img src="https://rmkcdn.successfactors.com/feaf7fda/6660e6e8-3bae-450e-aaef-d.png" alt="" />
+        </div>
+
+        <ul class="c-list-nostyle footer-menu">
+          <li class="footer-menu-item">
+            <ul class="c-list-nostyle footer-grid">
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/Life-as-Danamoners/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Life as Danamoners</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://careers.danamon.co.id/viewalljobs/" target="_blank" class="footer-cat-title"
+                      >Jobs</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/Professional-Hire/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Grow With Us</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Professional-Hire/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Professional Careers</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Danamon-Bankers-Trainee/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Management Trainee</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Internship/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Internship Program</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://careers.danamon.co.id/content/Events-and-Insights/" class="footer-cat-title"
+                      >Event & Insight</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/How-We-Hire/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >How We Hire</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="footer-menu-item">
+            <ul class="c-list-nostyle footer-grid">
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://www.danamon.co.id/id/Tentang-Danamon" target="_blank" class="footer-cat-title"
+                      >Tentang Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Profil Bank Danamon</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Informasi</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="http://careers.danamon.co.id/" target="_blank" class="footer-list-title">Karir</a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Investor</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://www.danamon.co.id/" target="_blank" class="footer-list-title">FAQ</a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/SBDK"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Suku Bunga Dasar Kredit</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://www.danamon.co.id/id/Personal" target="_blank" class="footer-list-title"
+                          >Bandingkan Produk</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/Hubungi-Kami"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Hubungi Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a href="tel:1500090" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/8a503906-3d56-46e3-983e-a.svg" alt="" />
+                          <span>Hello Danamon 1-500-090</span>
+                        </a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="mailto:hellodanamon@danamon.co.id" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/15734b26-e98f-491a-a9e3-7.svg" alt="" />
+                          <span>hellodanamon@danamon.co.id</span>
+                        </a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://api.whatsapp.com/send?phone=6285811500090" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/ed9eecac-724e-49b5-88ed-2.svg" alt="" />
+                          <span>0 858-1150-0090</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5" target="_blank" class="footer-cat-title"
+                      >Kantor Pusat</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <span class="footer-list-title">
+                          Jl. H. R. Rasuna Said C No.10 Karet Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12940
+                        </span>
+                        <a
+                          href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5"
+                          target="_blank"
+                          class="c-btn c-btn--transparent footer-list-btn"
+                        >
+                          <span>Get Direction</span>
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/6e125842-dd4a-4103-8509-b.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Perusahaan Induk</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                          target="_blank"
+                          class="footer-list-title"
+                        >
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/99da9ae5-ba2b-4b95-b70c-2.png" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Ekosistem Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                          target="_blank"
+                          class="footer-list-title"
+                        >
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/d137d2fc-51e9-45a6-9155-0.png" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="c-list-nostyle footer-social">
+          <li class="footer-social-item">
+            <a href="https://www.facebook.com/danamonindonesia" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/a5dc85c9-8203-42b4-9865-9.svg" alt="Facebook" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://twitter.com/danamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/81e743f5-ff3c-4d09-b4a6-0.svg" alt="Twitter" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://instagram.com/mydanamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/30eefa21-760f-4c02-be1b-5.svg" alt="Instagram" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://www.linkedin.com/company/bank-danamon-indonesia/" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/fae3bbec-a8d0-4f75-a80c-5.svg" alt="LinkedIn" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://www.tiktok.com/@bankdanamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/40bf6c8b-a261-45c6-ac40-0.svg" alt="TikTok" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://youtube.com/bankdanamonid" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/33057531-4d43-45fd-ad71-3.svg" alt="YouTube" />
+            </a>
+          </li>
+        </ul>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <p>
+              PT Bank Danamon Indonesia berizin dan diawasi oleh Otoritas Jasa Keuangan serta merupakan peserta
+              penjaminan LPS
+            </p>
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/98445091-49d7-4364-8c11-2.png" alt="" />
+          </div>
+        </div>
+
+        <div class="footer-line">
+          <div class="footer-line-item"></div>
+          <div class="footer-line-item --center"></div>
+          <div class="footer-line-item"></div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.0/air-datepicker.min.js"></script>
+    <script>
+      const postData = [
+        {
+          id: 0,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-05-03',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 1,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 2,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 3,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 4,
+          category: 'Global Exposure 2',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 5,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 6,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 7,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 8,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 9,
+          category: 'Global Exposure 2',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-05-03',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 10,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 11,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 12,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 13,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 14,
+          category: 'Global Exposure 2',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 15,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-05-03',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 16,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 17,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 18,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 19,
+          category: 'Global Exposure 2',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 20,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 21,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 22,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 23,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 24,
+          category: 'Global Exposure 2',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-05-03',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 25,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 26,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 27,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 28,
+          category: 'Global Exposure',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        },
+        {
+          id: 29,
+          category: 'Global Exposure 2',
+          title: 'Unhas Career Center and Bank Danamon Held Virtual Campus Hiring',
+          date: '2024-03-04',
+          image: 'https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png'
+        }
+      ];
+
+      let filteredPostData = [];
+      const pageSize = 16;
+
+      const createPostElement = (data) => {
+        return `
+          <li class="post-list-item">
+            <div class="post-list-item-wrapper">
+              <div class="post-list-item-img">
+                <span class="post-list-item-badge">${data.category}</span>
+                <div class="post-list-item-img-content c-media-cover">
+                  <img src="${data.image || 'https://via.placeholder.com/284x160'}" alt="" />
+                </div>
+              </div>
+              <div class="post-list-item-detail">
+                <div class="post-list-item-detail-head">
+                  <h1 class="post-list-item-title">${data.id} - ${data.title}</h1>
+                </div>
+                <div class="post-list-item-detail-body">
+                  <div class="post-list-item-date">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+                    <p>${formatPostDate(data.date)}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        `;
+      };
+
+      const createCatOptionElement = (data) => {
+        return `
+          <option value="${data}">${data}</option>
+        `;
+      };
+
+      const formatPostDate = (date) => {
+        return new Date(date).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      };
+
+      const numPrefix = (num) => {
+        let prefixed = num;
+        if (num < 10) prefixed = '0' + num;
+        return prefixed;
+      };
+
+      const formatDate = (date) => {
+        if (!(date instanceof Date)) date = new Date(date);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${year}-${numPrefix(month)}-${numPrefix(day)}`;
+      };
+
+      const filterByPage = (arr, page) => {
+        const start = page < 2 ? 0 : (page - 1) * pageSize;
+        const end = start + pageSize;
+        return arr.slice(start, end);
+      };
+
+      const filterByOpt = (arr, date, cat) => {
+        let filteredByOpt = arr;
+
+        if (date !== null && cat !== null)
+          filteredByOpt = arr.filter((data) => data.date === date && data.category === cat);
+        else if (date !== null) filteredByOpt = arr.filter((data) => data.date === date);
+        else if (cat !== null) filteredByOpt = arr.filter((data) => data.category === cat);
+
+        return filteredByOpt;
+      };
+
+      const getCurrentPage = () => {
+        const paginationNumber = document.querySelector('.js-pagination-number');
+        return parseInt(paginationNumber.value);
+      };
+
+      const getCurrentCat = () => {
+        const catPicker = document.querySelector('.js-catpicker');
+        return catPicker.value.length ? catPicker.value : null;
+      };
+
+      const getCurrentDate = () => {
+        const datePicker = document.querySelector('.js-datepicker');
+        return datePicker.value.length ? formatDate(datePicker.value) : null;
+      };
+
+      const onNextBtnClick = () => {
+        const currPage = getCurrentPage();
+        const targetPage = currPage + 1;
+        const postDataPage = Math.ceil(filteredPostData.length / pageSize);
+
+        const pageNumber = document.querySelector('.js-pagination-number');
+        if (targetPage <= postDataPage) {
+          pageNumber.value = targetPage;
+          generatePostList();
+          updatePagination();
+        }
+      };
+
+      const onPrevBtnClick = () => {
+        const currPage = getCurrentPage();
+        const targetPage = currPage - 1;
+
+        const pageNumber = document.querySelector('.js-pagination-number');
+        if (targetPage > 0) {
+          pageNumber.value = targetPage;
+          generatePostList();
+          updatePagination();
+        }
+      };
+
+      const updatePagination = () => {
+        const pagination = document.querySelector('.js-pagination');
+        const pagePrevBtn = document.querySelector('.js-pagination-prev');
+        const pageNextBtn = document.querySelector('.js-pagination-next');
+        const pageTotal = document.querySelector('.js-pagination-total');
+        const postDataLength = filteredPostData.length;
+        const postDataPage = Math.ceil(postDataLength / pageSize);
+
+        if (!postDataLength) pagination.style.display = 'none';
+        else pagination.style.display = 'flex';
+
+        pageTotal.innerText = `of ${postDataPage}`;
+
+        if (getCurrentPage() < 2) {
+          pagePrevBtn.disabled = true;
+          pagePrevBtn.classList.remove('is-active');
+        } else {
+          pagePrevBtn.disabled = false;
+          pagePrevBtn.classList.add('is-active');
+        }
+
+        if (getCurrentPage() === postDataPage) {
+          pageNextBtn.disabled = true;
+          pageNextBtn.classList.remove('is-active');
+        } else {
+          pageNextBtn.disabled = false;
+          pageNextBtn.classList.add('is-active');
+        }
+      };
+
+      const generatePostList = () => {
+        const allData = filteredPostData;
+        const dataPerPage = filterByPage(allData, getCurrentPage());
+        const postListElement = document.querySelector('.js-post-list');
+
+        postListElement.innerHTML = '';
+        dataPerPage.forEach((item) => {
+          postListElement.innerHTML += createPostElement(item);
+        });
+      };
+
+      const updatePostList = (date, cat) => {
+        filteredPostData = filterByOpt(postData, date, cat);
+        generatePostList();
+        updatePagination();
+      };
+
+      const onCatPickerChange = (e) => {
+        const cat = e.value.length ? e.value : null;
+        updatePostList(getCurrentDate(), cat);
+      };
+
+      const initCatPicker = () => {
+        const catPicker = document.querySelector('.js-catpicker');
+        const categories = postData.reduce((accumulator, currItem) => {
+          const res = [...accumulator];
+          if (!res.includes(currItem.category)) res.push(currItem.category);
+          return res;
+        }, []);
+
+        categories.forEach((item) => {
+          catPicker.innerHTML += createCatOptionElement(item);
+        });
+      };
+
+      const initDatepicker = () => {
+        const localeEn = {
+          days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+          daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+          months: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December'
+          ],
+          monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          today: 'Today',
+          clear: 'Clear',
+          dateFormat: 'MM/dd/yyyy',
+          timeFormat: 'hh:mm aa',
+          firstDay: 0
+        };
+
+        new AirDatepicker('.js-datepicker', {
+          locale: localeEn,
+          firstDay: 1,
+          autoClose: true,
+          dateFormat: 'MMMM d, yyyy',
+          buttons: ['clear'],
+          onSelect({ date, formattedDate, datepicker }) {
+            updatePostList(date ? formatDate(date) : null, getCurrentCat());
+          }
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initDatepicker();
+        initCatPicker();
+
+        const currDate = getCurrentDate();
+        const currCat = getCurrentCat();
+
+        updatePostList(currDate, currCat);
+      });
+    </script>
+  </body>
+</html>

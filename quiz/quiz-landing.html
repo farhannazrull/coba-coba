@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Danamon Landing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.0/air-datepicker.min.css" />
+
+    <style>
+      :root {
+        --color-primary: #e94e14;
+        --color-white: #ffffff;
+        --color-green: #056047;
+        --color-black-90: #252525;
+        --color-black-70: #565656;
+        --color-black-40: #9e9e9e;
+        --color-black-30: #b6b6b6;
+        --fs-section-title: 36px;
+      }
+
+      /* overide default classes styilng */
+      html body.coreCSB,
+      body {
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      html body.coreCSB .btn,
+      body .btn {
+        font-family: 'Roboto', sans-serif !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+
+      .outershell a.c-btn--primary {
+        color: var(--color-white) !important;
+      }
+      .outershell a.c-btn--primary:hover {
+        text-decoration: none;
+        filter: brightness(90%);
+      }
+      .outershell a.c-btn--transparent {
+        color: var(--color-primary) !important;
+      }
+      .outershell a.c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      #innershell {
+        width: 100%;
+        max-width: none;
+      }
+      .inner {
+        max-width: none;
+      }
+      #content > .inner > div {
+        margin-bottom: 24px;
+      }
+      .searchwell {
+        padding: 24px;
+        border-radius: 32px;
+      }
+      .searchwell > form {
+        max-width: 1064px;
+        margin: 0 auto !important;
+      }
+      .searchwell > form > .container-fluid {
+        padding: 0;
+      }
+
+      #content ul,
+      #content ol {
+        list-style-position: initial;
+        padding-left: 0;
+      }
+      /* ------------------------------- */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .c-container {
+        width: 94%;
+        max-width: 1238px;
+        margin: 0 auto;
+      }
+
+      /* helper */
+      .c-section-title {
+        font-size: clamp(24px, 2.65vw, 36px);
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+        line-height: 1.2;
+      }
+      .c-section-title .--highlight {
+        color: var(--color-green) !important;
+      }
+
+      .c-section-item {
+        margin-bottom: 48px;
+      }
+
+      .c-list-nostyle {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* button */
+      .c-btn {
+        outline: none;
+        border: 1px solid transparent !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .c-btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+      .c-btn--primary:hover {
+        filter: brightness(90%);
+      }
+
+      .c-btn--transparent {
+        color: var(--color-primary);
+        background-color: transparent;
+      }
+      .c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      .c-btn--ghost {
+        background: transparent;
+        border-color: var(--color-white) !important;
+        color: var(--color-white);
+      }
+      .c-btn--ghost:hover {
+        background-color: var(--color-black-80);
+      }
+
+      .c-btn--banner {
+        width: fit-content;
+        padding: 8px 12px;
+        margin-top: 20px;
+      }
+
+      .c-btn--dropdown {
+        max-width: none;
+        justify-content: space-between;
+        padding: 16px;
+        font-weight: 700;
+        color: var(--color-black-90);
+      }
+      .c-btn--dropdown:hover {
+        text-decoration: none;
+      }
+
+      /* image */
+      .c-media-cover > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .c-media-contain > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      /* tab */
+      .tab-nav {
+        overflow-x: auto;
+        margin-bottom: 40px;
+      }
+
+      .tab-nav-list {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+        margin: 0 auto;
+      }
+
+      .tab-nav-btn {
+        height: 100%;
+        border-radius: 0;
+        padding: 6px 10px;
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--color-black-70);
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      .tab-nav-btn:hover {
+        text-decoration: none;
+      }
+
+      .tab-nav-btn.is-active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary) !important;
+      }
+
+      .tab-nav-content {
+        display: none;
+      }
+      .tab-nav-content.is-active {
+        display: block;
+      }
+
+      /* form input */
+      .c-form-input {
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: 1px solid #b6b6b6;
+        box-shadow: 0px 1px 0px 0px #0000001a;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-black-70) !important;
+      }
+      .c-form-input.--block {
+        width: 100%;
+      }
+      .c-form-input::placeholder {
+        color: #868686;
+      }
+
+      /* dropdown */
+      .c-dropdown-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: all 0.4s ease;
+      }
+      .c-dropdown-content > div {
+        overflow: hidden;
+      }
+      .c-dropdown-content-inner {
+        padding: 0 16px 16px;
+      }
+
+      /* footer */
+      .c-footer {
+        padding: 32px 16px;
+      }
+
+      .footer-logo {
+        height: 107px;
+        max-width: 152px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu-title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+      .footer-menu-title > h1 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-black-30);
+      }
+      .footer-menu-title-line {
+        flex: 1;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        row-gap: 24px;
+      }
+
+      .footer-cat {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+      }
+
+      .outershell a.footer-cat-title {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.2;
+      }
+
+      .footer-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        margin-top: 16px;
+      }
+
+      .outershell .footer-list-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 200px;
+        width: fit-content;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        color: #8d8d8d !important;
+        line-height: 1.6;
+      }
+      .outershell .footer-list-title:hover {
+        text-decoration: underline;
+      }
+
+      .outershell .footer-list-btn {
+        width: fit-content;
+        max-width: none;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .footer-social-item > a {
+        display: block;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+
+      .footer-bottom * {
+        font-size: 12px;
+      }
+
+      .footer-bottom a {
+        display: block;
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom-left {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px 10px;
+        font-weight: 700;
+        color: #8d8d8d !important;
+      }
+
+      .footer-line {
+        display: flex;
+      }
+      .footer-line-item {
+        flex: 1;
+        height: 6px;
+        background-color: #ffc629;
+      }
+      .footer-line-item.--center {
+        flex: 2;
+        background-color: var(--color-primary);
+      }
+
+      @media screen and (min-width: 480px) {
+        .post-header {
+          align-items: center;
+          flex-direction: row;
+        }
+
+        .post-header-filter {
+          flex-direction: row;
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          justify-content: flex-start;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .post-list.--highlight-style {
+          gap: 34px 40px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .post-list.--highlight-style .post-list-item:nth-child(1) {
+          grid-row: span 3 / span 3;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+
+      .js-dropdown {
+        border-radius: 8px;
+        background-color: var(--color-white);
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        transition: all 0.4s ease;
+      }
+      .js-dropdown.is-active {
+        background-color: #eeeeee;
+      }
+      .js-dropdown-btn {
+        transition: all 0.4s ease;
+      }
+      .js-dropdown.is-active .js-dropdown-btn {
+        padding-bottom: 6px;
+        color: var(--color-primary);
+      }
+      .js-dropdown.is-active .js-dropdown-content {
+        grid-template-rows: 1fr;
+      }
+
+      .js-loadmore-item {
+        display: none;
+      }
+      .js-loadmore-btn.is-hide {
+        display: none;
+      }
+
+      /* custom styling */
+      .banner {
+        padding: 44px 24px 0;
+        background: url('https://rmkcdn.successfactors.com/feaf7fda/2a97d1a0-f59f-47ab-9b26-0.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .banner-title {
+        max-width: 669px;
+        margin: 0 auto 44px;
+      }
+      .banner-title * {
+        text-align: center;
+        color: var(--color-white) !important;
+      }
+      .banner-title h1 {
+        font-size: 36px;
+        margin-bottom: 12px;
+      }
+      @media screen and (min-width: 768px) {
+        .banner {
+          background-image: url('https://rmkcdn.successfactors.com/feaf7fda/6b621a6a-f6b6-4a6b-8907-1.png');
+        }
+        .banner-title {
+          margin-bottom: 12px;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        .banner {
+          padding: 44px 86px 0;
+        }
+      }
+
+      .banner-content {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+      }
+      .banner-content-item {
+        flex: 1;
+      }
+      .banner-content-item.--text {
+        max-width: 292px;
+        color: var(--color-white);
+        text-align: center;
+      }
+      .banner-content-item.--image {
+        order: 3;
+        display: flex;
+        justify-content: center;
+      }
+      @media screen and (min-width: 768px) {
+        .banner-content {
+          flex-direction: row;
+          flex-wrap: initial;
+          justify-content: space-between;
+        }
+        .banner-content-item.--image {
+          order: unset;
+          min-width: 300px;
+        }
+        .banner-content-item.--text {
+          text-align: left;
+        }
+      }
+
+      .content-item-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--color-white) !important;
+      }
+
+      .content-item-desc {
+        margin-bottom: 12px;
+      }
+
+      .content-item-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .content-item-cta span {
+        color: var(--color-white) !important;
+      }
+      @media screen and (min-width: 768px) {
+        .content-item-cta {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="c-section-item banner">
+        <div class="banner-title">
+          <h1 class="c-section-title">Try Our Quiz Today</h1>
+          <p class="banner-subtitle">
+            Choose our Danamon or career test to find the career that best suits your talents and personality. It's the
+            first move toward achieving your greatest career potential!
+          </p>
+        </div>
+        <div class="banner-content">
+          <div class="banner-content-item --text">
+            <h2 class="content-item-title">Danamon Quiz</h2>
+            <p class="content-item-desc">Take a quiz to find out how much you know about Danamon</p>
+            <a href="https://careers.danamon.co.id/content/Quiz-About-Danamon/" class="content-item-cta">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/e8200e02-b588-46f8-8675-5.svg" alt="arrow icon" />
+              <span>Start Now</span>
+            </a>
+          </div>
+          <div class="banner-content-item --image">
+            <div class="content-item-image c-media-contain">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/b6506ef3-82f3-469f-9905-e.png" alt="Woman Photo" />
+            </div>
+          </div>
+          <div class="banner-content-item --text">
+            <h2 class="content-item-title">Career Quiz</h2>
+            <p class="content-item-desc">Discover a professional position that matches your skills and experience</p>
+            <a href="https://careers.danamon.co.id/content/Quiz-Career/" class="content-item-cta">
+              <img
+                style="transform: rotate(180deg)"
+                src="https://rmkcdn.successfactors.com/feaf7fda/e8200e02-b588-46f8-8675-5.svg"
+                alt="arrow icon"
+              />
+              <span>Start Now</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="c-container">
+        <section class="c-footer">
+          <div class="footer-logo c-media-cover">
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/6660e6e8-3bae-450e-aaef-d.png" alt="" />
+          </div>
+
+          <ul class="c-list-nostyle footer-menu">
+            <li class="footer-menu-item">
+              <ul class="c-list-nostyle footer-grid">
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://careers.danamon.co.id/content/Life-as-Danamoners/"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Life as Danamoners</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://careers.danamon.co.id/viewalljobs/" target="_blank" class="footer-cat-title"
+                        >Jobs</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://careers.danamon.co.id/content/Professional-Hire/"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Grow With Us</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://careers.danamon.co.id/content/Professional-Hire/"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Professional Careers</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://careers.danamon.co.id/content/Danamon-Bankers-Trainee/"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Management Trainee</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://careers.danamon.co.id/content/Internship/"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Internship Program</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://careers.danamon.co.id/content/Events-and-Insights/" class="footer-cat-title"
+                        >Event & Insight</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://careers.danamon.co.id/content/How-We-Hire/"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >How We Hire</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="footer-menu-item">
+              <ul class="c-list-nostyle footer-grid">
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://www.danamon.co.id/id/Tentang-Danamon" target="_blank" class="footer-cat-title"
+                        >Tentang Kami</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Profil Bank Danamon</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Informasi</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="http://careers.danamon.co.id/" target="_blank" class="footer-list-title">Karir</a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Investor</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="https://www.danamon.co.id/" target="_blank" class="footer-list-title">FAQ</a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/SBDK"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Suku Bunga Dasar Kredit</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="https://www.danamon.co.id/id/Personal" target="_blank" class="footer-list-title"
+                            >Bandingkan Produk</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://www.danamon.co.id/id/Tentang-Danamon/Hubungi-Kami"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Hubungi Kami</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a href="tel:1500090" class="footer-list-title">
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/8a503906-3d56-46e3-983e-a.svg"
+                              alt=""
+                            />
+                            <span>Hello Danamon 1-500-090</span>
+                          </a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="mailto:hellodanamon@danamon.co.id" class="footer-list-title">
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/15734b26-e98f-491a-a9e3-7.svg"
+                              alt=""
+                            />
+                            <span>hellodanamon@danamon.co.id</span>
+                          </a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="https://api.whatsapp.com/send?phone=6285811500090" class="footer-list-title">
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/ed9eecac-724e-49b5-88ed-2.svg"
+                              alt=""
+                            />
+                            <span>0 858-1150-0090</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5" target="_blank" class="footer-cat-title"
+                        >Kantor Pusat</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <span class="footer-list-title">
+                            Jl. H. R. Rasuna Said C No.10 Karet Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12940
+                          </span>
+                          <a
+                            href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5"
+                            target="_blank"
+                            class="c-btn c-btn--transparent footer-list-btn"
+                          >
+                            <span>Get Direction</span>
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/6e125842-dd4a-4103-8509-b.svg"
+                              alt=""
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Perusahaan Induk</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                            target="_blank"
+                            class="footer-list-title"
+                          >
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/99da9ae5-ba2b-4b95-b70c-2.png"
+                              alt=""
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Ekosistem Kami</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                            target="_blank"
+                            class="footer-list-title"
+                          >
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/d137d2fc-51e9-45a6-9155-0.png"
+                              alt=""
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="c-list-nostyle footer-social">
+            <li class="footer-social-item">
+              <a href="https://www.facebook.com/danamonindonesia" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/a5dc85c9-8203-42b4-9865-9.svg" alt="Facebook" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://twitter.com/danamon" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/81e743f5-ff3c-4d09-b4a6-0.svg" alt="Twitter" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://instagram.com/mydanamon" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/30eefa21-760f-4c02-be1b-5.svg" alt="Instagram" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://www.linkedin.com/company/bank-danamon-indonesia/" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/fae3bbec-a8d0-4f75-a80c-5.svg" alt="LinkedIn" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://www.tiktok.com/@bankdanamon" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/40bf6c8b-a261-45c6-ac40-0.svg" alt="TikTok" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://youtube.com/bankdanamonid" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/33057531-4d43-45fd-ad71-3.svg" alt="YouTube" />
+              </a>
+            </li>
+          </ul>
+
+          <div class="footer-bottom">
+            <div class="footer-bottom-left">
+              <p>
+                PT Bank Danamon Indonesia berizin dan diawasi oleh Otoritas Jasa Keuangan serta merupakan peserta
+                penjaminan LPS
+              </p>
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/98445091-49d7-4364-8c11-2.png" alt="" />
+            </div>
+          </div>
+
+          <div class="footer-line">
+            <div class="footer-line-item"></div>
+            <div class="footer-line-item --center"></div>
+            <div class="footer-line-item"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>

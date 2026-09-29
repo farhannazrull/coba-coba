@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Career</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.0/air-datepicker.min.css" />
+
+    <style>
+      :root {
+        --color-primary: #e94e14;
+        --color-white: #ffffff;
+        --color-green: #056047;
+        --color-black-90: #252525;
+        --color-black-70: #565656;
+        --color-black-60: #858585;
+        --color-black-40: #9e9e9e;
+        --color-black-30: #b6b6b6;
+        --fs-section-title: 36px;
+      }
+
+      /* overide default classes styilng */
+      html body.coreCSB,
+      body {
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      html body.coreCSB .btn,
+      body .btn {
+        font-family: 'Roboto', sans-serif !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+
+      .outershell a.c-btn--primary {
+        color: var(--color-white) !important;
+      }
+      .outershell a.c-btn--primary:hover {
+        text-decoration: none;
+        filter: brightness(90%);
+      }
+      .outershell a.c-btn--transparent {
+        color: var(--color-primary) !important;
+      }
+      .outershell a.c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      #innershell {
+        width: 100%;
+        max-width: none;
+      }
+      .inner {
+        max-width: none;
+      }
+      #content > .inner > div {
+        margin-bottom: 24px;
+      }
+      .searchwell {
+        padding: 24px;
+        border-radius: 32px;
+      }
+      .searchwell > form {
+        max-width: 1064px;
+        margin: 0 auto !important;
+      }
+      .searchwell > form > .container-fluid {
+        padding: 0;
+      }
+
+      #content ul,
+      #content ol {
+        list-style-position: initial;
+        padding-left: 0;
+      }
+      /* ------------------------------- */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .c-container {
+        width: 94%;
+        max-width: 1238px;
+        margin: 0 auto;
+      }
+
+      /* helper */
+      .c-section-title {
+        font-size: clamp(24px, 2.65vw, 36px);
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+        line-height: 1.2;
+      }
+      .c-section-title .--highlight {
+        color: var(--color-green) !important;
+      }
+
+      .c-section-item {
+        margin-bottom: 48px;
+      }
+
+      .c-list-nostyle {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* button */
+      .c-btn {
+        outline: none;
+        border: 1px solid transparent !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .c-btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+      .c-btn--primary:hover {
+        filter: brightness(90%);
+      }
+
+      .c-btn--transparent {
+        color: var(--color-primary);
+        background-color: transparent;
+      }
+      .c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      .c-btn--ghost {
+        background: transparent;
+        border-color: var(--color-white) !important;
+        color: var(--color-white);
+      }
+      .c-btn--ghost:hover {
+        background-color: var(--color-black-80);
+      }
+
+      .c-btn--banner {
+        width: fit-content;
+        padding: 8px 12px;
+        margin-top: 20px;
+      }
+
+      .c-btn--dropdown {
+        max-width: none;
+        justify-content: space-between;
+        padding: 16px;
+        font-weight: 700;
+        color: var(--color-black-90);
+      }
+      .c-btn--dropdown:hover {
+        text-decoration: none;
+      }
+
+      /* image */
+      .c-media-cover > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .c-media-contain > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      /* tab */
+      .tab-nav {
+        overflow-x: auto;
+        margin-bottom: 40px;
+      }
+
+      .tab-nav-list {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+        margin: 0 auto;
+      }
+
+      .tab-nav-btn {
+        height: 100%;
+        border-radius: 0;
+        padding: 6px 10px;
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--color-black-70);
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      .tab-nav-btn:hover {
+        text-decoration: none;
+      }
+
+      .tab-nav-btn.is-active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary) !important;
+      }
+
+      .tab-nav-content {
+        display: none;
+      }
+      .tab-nav-content.is-active {
+        display: block;
+      }
+
+      /* form input */
+      .c-form-input {
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: 1px solid #b6b6b6;
+        box-shadow: 0px 1px 0px 0px #0000001a;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-black-70) !important;
+      }
+      .c-form-input.--block {
+        width: 100%;
+      }
+      .c-form-input::placeholder {
+        color: #868686;
+      }
+
+      /* dropdown */
+      .c-dropdown-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: all 0.4s ease;
+      }
+      .c-dropdown-content > div {
+        overflow: hidden;
+      }
+      .c-dropdown-content-inner {
+        padding: 0 16px 16px;
+      }
+
+      /* footer */
+      .c-footer {
+        padding: 32px 16px;
+      }
+
+      .footer-logo {
+        height: 107px;
+        max-width: 152px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu-title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+      .footer-menu-title > h1 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-black-30);
+      }
+      .footer-menu-title-line {
+        flex: 1;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        row-gap: 24px;
+      }
+
+      .footer-cat {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+      }
+
+      .outershell a.footer-cat-title {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.2;
+      }
+
+      .footer-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        margin-top: 16px;
+      }
+
+      .outershell .footer-list-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 200px;
+        width: fit-content;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        color: #8d8d8d !important;
+        line-height: 1.6;
+      }
+      .outershell .footer-list-title:hover {
+        text-decoration: underline;
+      }
+
+      .outershell .footer-list-btn {
+        width: fit-content;
+        max-width: none;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .footer-social-item > a {
+        display: block;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+
+      .footer-bottom * {
+        font-size: 12px;
+      }
+
+      .footer-bottom a {
+        display: block;
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom-left {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px 10px;
+        font-weight: 700;
+        color: #8d8d8d !important;
+      }
+
+      .footer-line {
+        display: flex;
+      }
+      .footer-line-item {
+        flex: 1;
+        height: 6px;
+        background-color: #ffc629;
+      }
+      .footer-line-item.--center {
+        flex: 2;
+        background-color: var(--color-primary);
+      }
+
+      @media screen and (min-width: 480px) {
+        .post-header {
+          align-items: center;
+          flex-direction: row;
+        }
+
+        .post-header-filter {
+          flex-direction: row;
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          justify-content: flex-start;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .post-list.--highlight-style {
+          gap: 34px 40px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .post-list.--highlight-style .post-list-item:nth-child(1) {
+          grid-row: span 3 / span 3;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+
+      .js-dropdown {
+        border-radius: 8px;
+        background-color: var(--color-white);
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        transition: all 0.4s ease;
+      }
+      .js-dropdown.is-active {
+        background-color: #eeeeee;
+      }
+      .js-dropdown-btn {
+        transition: all 0.4s ease;
+      }
+      .js-dropdown.is-active .js-dropdown-btn {
+        padding-bottom: 6px;
+        color: var(--color-primary);
+      }
+      .js-dropdown.is-active .js-dropdown-content {
+        grid-template-rows: 1fr;
+      }
+
+      .js-loadmore-item {
+        display: none;
+      }
+      .js-loadmore-btn.is-hide {
+        display: none;
+      }
+
+      /* custom styling */
+      .banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        max-height: 700px;
+        padding: 24px;
+        background: url('https://rmkcdn.successfactors.com/0da85466/05be125f-6d56-4a93-ab4c-4.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .banner > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .banner-wrapper {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .banner-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 32px;
+        font-size: 16px;
+        color: var(--color-white) !important;
+      }
+
+      .banner-title-count .counter {
+        font-weight: 600;
+        font-size: 24px;
+      }
+
+      .banner-question {
+        margin-bottom: 24px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--color-white) !important;
+      }
+
+      .banner-option {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .option-item-input {
+        display: none;
+      }
+
+      .option-item-button {
+        justify-content: flex-start;
+        gap: 12px;
+        max-width: none;
+        padding: 12px;
+        color: var(--color-black-90);
+        background-color: #ffffff66;
+        font-weight: 400;
+      }
+      .option-item-button.is-active {
+        background-color: #ef8d57;
+      }
+
+      .option-item-button-char {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: 14px;
+        text-transform: uppercase;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+
+      .banner-button {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .banner-score {
+        position: relative;
+        width: 100%;
+        max-width: 218px;
+        margin: 0 auto 24px;
+      }
+
+      .banner-score-image {
+        width: 100%;
+      }
+
+      .banner-score-text {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .banner-score-text > * {
+        color: var(--color-white);
+        font-weight: 700;
+      }
+
+      .banner-score-value {
+        font-size: 64px;
+      }
+      .banner-score-total {
+        font-size: 22px;
+      }
+
+      .banner-result {
+        margin-bottom: 40px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 36px;
+        color: var(--color-white) !important;
+        text-wrap: balance;
+      }
+
+      .explore-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px 40px;
+      }
+
+      .explore-item {
+        position: relative;
+        height: 220px;
+        aspect-ratio: 16 / 9;
+        border-radius: 42px;
+        border: 1.5px solid var(--color-white);
+        overflow: hidden;
+      }
+      .explore-item:hover .explore-item-overlay {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .explore-item-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding: 12px 40px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .explore-item-main > * {
+        width: 55%;
+      }
+
+      .explore-item-title {
+        font-weight: 700;
+        font-size: 24px;
+        color: var(--color-white) !important;
+        line-height: 1.25;
+      }
+
+      .explore-item-desc {
+        font-weight: 500;
+        font-size: 16px;
+        color: var(--color-white) !important;
+        line-height: 1.5;
+      }
+
+      .explore-item-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 40px;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        pointer-events: none;
+        background-image: url('https://rmkcdn.successfactors.com/feaf7fda/1933f57b-c97e-4d02-85d7-7.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: all 0.4s ease;
+      }
+
+      .explore-item-btn {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+      }
+
+      /* quiz functional */
+      .js-quiz-result {
+        display: none;
+        width: 100%;
+      }
+
+      .js-quiz-content.is-hide {
+        display: none;
+      }
+      .js-quiz-content.is-hide + .js-quiz-result {
+        display: block;
+      }
+
+      .js-quiz-btn-next {
+        pointer-events: none;
+        background-color: var(--color-black-60);
+      }
+      .js-quiz-btn-next.is-active {
+        pointer-events: all;
+        background-color: var(--color-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="c-section-item banner">
+        <div class="js-quiz">
+          <div class="banner-wrapper js-quiz-content">
+            <h1 class="banner-title">
+              <span>Question</span>
+              <span class="banner-title-count">
+                <span class="counter"
+                  ><span class="js-quiz-current"><!-- auto generate --></span>/</span
+                >
+                <span class="js-quiz-total"><!-- auto generate --></span>
+              </span>
+            </h1>
+            <h2 class="banner-question js-quiz-question"><!-- auto generate --></h2>
+            <ul class="c-list-nostyle banner-option js-quiz-option">
+              <!-- auto generate -->
+            </ul>
+
+            <div class="banner-button">
+              <button class="c-btn c-btn--primary banner-button-item js-quiz-btn-next" onclick="onNextQuiz()">
+                Next
+              </button>
+            </div>
+          </div>
+
+          <div class="js-quiz-result">
+            <h2 class="banner-result">Find the Best Career for You</h2>
+            <ul class="c-list-nostyle explore-list js-quiz-result-list">
+              <!-- auto generate -->
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="c-container">
+        <section class="c-footer">
+          <div class="footer-logo c-media-cover">
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/6660e6e8-3bae-450e-aaef-d.png" alt="" />
+          </div>
+
+          <ul class="c-list-nostyle footer-menu">
+            <li class="footer-menu-item">
+              <ul class="c-list-nostyle footer-grid">
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://careers.danamon.co.id/content/Life-as-Danamoners/"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Life as Danamoners</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://careers.danamon.co.id/viewalljobs/" target="_blank" class="footer-cat-title"
+                        >Jobs</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://careers.danamon.co.id/content/Professional-Hire/"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Grow With Us</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://careers.danamon.co.id/content/Professional-Hire/"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Professional Careers</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://careers.danamon.co.id/content/Danamon-Bankers-Trainee/"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Management Trainee</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://careers.danamon.co.id/content/Internship/"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Internship Program</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://careers.danamon.co.id/content/Events-and-Insights/" class="footer-cat-title"
+                        >Event & Insight</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://careers.danamon.co.id/content/How-We-Hire/"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >How We Hire</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="footer-menu-item">
+              <ul class="c-list-nostyle footer-grid">
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://www.danamon.co.id/id/Tentang-Danamon" target="_blank" class="footer-cat-title"
+                        >Tentang Kami</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Profil Bank Danamon</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Informasi</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="http://careers.danamon.co.id/" target="_blank" class="footer-list-title">Karir</a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Investor</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="https://www.danamon.co.id/" target="_blank" class="footer-list-title">FAQ</a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/SBDK"
+                            target="_blank"
+                            class="footer-list-title"
+                            >Suku Bunga Dasar Kredit</a
+                          >
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="https://www.danamon.co.id/id/Personal" target="_blank" class="footer-list-title"
+                            >Bandingkan Produk</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://www.danamon.co.id/id/Tentang-Danamon/Hubungi-Kami"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Hubungi Kami</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a href="tel:1500090" class="footer-list-title">
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/8a503906-3d56-46e3-983e-a.svg"
+                              alt=""
+                            />
+                            <span>Hello Danamon 1-500-090</span>
+                          </a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="mailto:hellodanamon@danamon.co.id" class="footer-list-title">
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/15734b26-e98f-491a-a9e3-7.svg"
+                              alt=""
+                            />
+                            <span>hellodanamon@danamon.co.id</span>
+                          </a>
+                        </li>
+                        <li class="footer-list-item">
+                          <a href="https://api.whatsapp.com/send?phone=6285811500090" class="footer-list-title">
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/ed9eecac-724e-49b5-88ed-2.svg"
+                              alt=""
+                            />
+                            <span>0 858-1150-0090</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5" target="_blank" class="footer-cat-title"
+                        >Kantor Pusat</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <span class="footer-list-title">
+                            Jl. H. R. Rasuna Said C No.10 Karet Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12940
+                          </span>
+                          <a
+                            href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5"
+                            target="_blank"
+                            class="c-btn c-btn--transparent footer-list-btn"
+                          >
+                            <span>Get Direction</span>
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/6e125842-dd4a-4103-8509-b.svg"
+                              alt=""
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer-grid-item">
+                  <ul class="c-list-nostyle footer-cat">
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Perusahaan Induk</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                            target="_blank"
+                            class="footer-list-title"
+                          >
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/99da9ae5-ba2b-4b95-b70c-2.png"
+                              alt=""
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="footer-cat-item">
+                      <a
+                        href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                        target="_blank"
+                        class="footer-cat-title"
+                        >Ekosistem Kami</a
+                      >
+                      <ul class="c-list-nostyle footer-list">
+                        <li class="footer-list-item">
+                          <a
+                            href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                            target="_blank"
+                            class="footer-list-title"
+                          >
+                            <img
+                              src="https://rmkcdn.successfactors.com/feaf7fda/d137d2fc-51e9-45a6-9155-0.png"
+                              alt=""
+                            />
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="c-list-nostyle footer-social">
+            <li class="footer-social-item">
+              <a href="https://www.facebook.com/danamonindonesia" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/a5dc85c9-8203-42b4-9865-9.svg" alt="Facebook" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://twitter.com/danamon" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/81e743f5-ff3c-4d09-b4a6-0.svg" alt="Twitter" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://instagram.com/mydanamon" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/30eefa21-760f-4c02-be1b-5.svg" alt="Instagram" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://www.linkedin.com/company/bank-danamon-indonesia/" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/fae3bbec-a8d0-4f75-a80c-5.svg" alt="LinkedIn" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://www.tiktok.com/@bankdanamon" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/40bf6c8b-a261-45c6-ac40-0.svg" alt="TikTok" />
+              </a>
+            </li>
+            <li class="footer-social-item">
+              <a href="https://youtube.com/bankdanamonid" target="_blank">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/33057531-4d43-45fd-ad71-3.svg" alt="YouTube" />
+              </a>
+            </li>
+          </ul>
+
+          <div class="footer-bottom">
+            <div class="footer-bottom-left">
+              <p>
+                PT Bank Danamon Indonesia berizin dan diawasi oleh Otoritas Jasa Keuangan serta merupakan peserta
+                penjaminan LPS
+              </p>
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/98445091-49d7-4364-8c11-2.png" alt="" />
+            </div>
+          </div>
+
+          <div class="footer-line">
+            <div class="footer-line-item"></div>
+            <div class="footer-line-item --center"></div>
+            <div class="footer-line-item"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      const postData = [
+        {
+          id: 0,
+          question: 'Which best describes your career experience?',
+          option: [
+            {
+              id: 0,
+              title: 'Students',
+              identifier: ['dap']
+            },
+            {
+              id: 1,
+              title: 'Fresh Graduates',
+              identifier: ['dbt', 'dst', 'dbo', 'dtt']
+            },
+            {
+              id: 2,
+              title: 'Experienced (0-2 years)',
+              identifier: ['dbt', 'dst', 'dbo', 'dtt']
+            },
+            {
+              id: 3,
+              title: 'Experienced (>2 years)',
+              identifier: ['pro']
+            }
+          ]
+        },
+        {
+          id: 1,
+          question: 'How would you describe your English ability?',
+          option: [
+            {
+              id: 0,
+              title: 'I am able to communicate, but I still need to learn',
+              identifier: ['dst', 'dbo']
+            },
+            {
+              id: 1,
+              title: 'I am very confident in my English ability',
+              identifier: ['dtt', 'dbt']
+            }
+          ]
+        },
+        {
+          id: 2,
+          question: 'Which one do you prefer?',
+          option: [
+            {
+              id: 0,
+              title: 'Working directly with customers',
+              identifier: ['dst', 'dbo']
+            },
+            {
+              id: 1,
+              title: 'Working behind the scenes',
+              identifier: ['dtt']
+            },
+            {
+              id: 2,
+              title: 'I am good in both environments',
+              identifier: ['dbt']
+            }
+          ]
+        },
+        {
+          id: 3,
+          question: 'I would describe myself as a/an...',
+          option: [
+            {
+              id: 0,
+              title: 'People person',
+              identifier: ['dst', 'dbo']
+            },
+            {
+              id: 1,
+              title: 'Analytical person',
+              identifier: ['dtt']
+            },
+            {
+              id: 2,
+              title: 'Versatile person',
+              identifier: ['dbt']
+            }
+          ]
+        },
+        {
+          id: 4,
+          question: 'On a day-to-day basis, I imagine myself...',
+          option: [
+            {
+              id: 0,
+              title: "Identifying the customer's needs and providing excellent services",
+              identifier: ['dst', 'dbo']
+            },
+            {
+              id: 1,
+              title: 'Innovating new products and applications to boost digital presence',
+              identifier: ['dtt']
+            },
+            {
+              id: 2,
+              title: 'Patching my way to being a future leader',
+              identifier: ['dbt']
+            }
+          ]
+        },
+        {
+          id: 5,
+          question: 'Which trait describes you the best?',
+          option: [
+            {
+              id: 0,
+              title: 'Target oriented',
+              identifier: ['dst', 'dbo']
+            },
+            {
+              id: 1,
+              title: 'Tech savvy',
+              identifier: ['dtt']
+            },
+            {
+              id: 2,
+              title: 'Persistent',
+              identifier: ['dbt']
+            }
+          ]
+        },
+        {
+          id: 6,
+          question: 'Which industry are you experienced in or interested in?',
+          option: [
+            {
+              id: 0,
+              title: 'Small and Medium Enterprises',
+              identifier: ['dst']
+            },
+            {
+              id: 1,
+              title: 'Consumer',
+              identifier: ['dbo']
+            },
+            {
+              id: 2,
+              title: 'Mortgage',
+              identifier: ['dbo']
+            },
+            {
+              id: 3,
+              title: 'Branch Network',
+              identifier: ['dbo']
+            }
+          ]
+        },
+        {
+          id: 7,
+          question: 'What are you most excited about working in Danamon?',
+          option: [
+            {
+              id: 0,
+              title: 'Global Exposure',
+              identifier: []
+            },
+            {
+              id: 1,
+              title: 'Rise to Excellence',
+              identifier: []
+            },
+            {
+              id: 2,
+              title: 'Own Your Future',
+              identifier: []
+            },
+            {
+              id: 3,
+              title: 'Wellness and wellbeing',
+              identifier: []
+            }
+          ]
+        }
+      ];
+
+      const identifiers = {
+        dap: 0,
+        dbt: 0,
+        dst: 0,
+        dbo: 0,
+        dtt: 0,
+        pro: 0
+      };
+
+      const identifiers_item = [
+        {
+          identifier: 'dap',
+          acronym: 'Internship',
+          title: 'Regular & DAP Program',
+          description: 'Build your first professional career with hands-on banking experience',
+          link: 'https://careers.danamon.co.id/content/Internship/',
+          image_front: 'https://rmkcdn.successfactors.com/feaf7fda/28020e5e-bbc8-436c-943d-f.png'
+        },
+        {
+          identifier: 'dbt',
+          acronym: 'DBT',
+          title: 'Danamon Bankers Trainee',
+          description: 'Fresh graduates program to become future leaders in various Bank functions',
+          link: 'https://careers.danamon.co.id/content/Danamon-Bankers-Trainee/',
+          image_front: 'https://rmkcdn.successfactors.com/feaf7fda/730a2196-a1b7-4bd6-8357-a.png'
+        },
+        {
+          identifier: 'dst',
+          acronym: 'DST',
+          title: 'Danamon SME Trainee',
+          description: 'A learning program for developing business relationships & portfolios in SMEs',
+          link: 'https://careers.danamon.co.id/content/Danamon-SME-Trainee/',
+          image_front: 'https://rmkcdn.successfactors.com/feaf7fda/ab37dd74-25d5-44e3-a4b4-7.png'
+        },
+        {
+          identifier: 'dbo',
+          acronym: 'DBO',
+          title: 'Danamon Banking Officer',
+          description: 'Fast track career to become a Relationship Officer in Branch Networks and Mortgages',
+          link: 'https://careers.danamon.co.id/content/Danamon-Banking-Officer/',
+          image_front: 'https://rmkcdn.successfactors.com/feaf7fda/a0279d1a-be55-44ca-ad8d-5.png'
+        },
+        {
+          identifier: 'dtt',
+          acronym: 'DTT',
+          title: 'Danamon Technology Trainee',
+          description: 'IT program for graduates & young talents with strong IT backgrounds and interests',
+          link: 'https://careers.danamon.co.id/content/Danamon-Technology-Trainee/',
+          image_front: 'https://rmkcdn.successfactors.com/feaf7fda/828fd68b-fd66-4403-87e5-0.png'
+        },
+        {
+          identifier: 'pro',
+          acronym: 'Internship',
+          title: 'Regular & DAP Program',
+          description: 'Build your first professional career with hands-on banking experience',
+          link: 'https://careers.danamon.co.id/content/Professional-Hire/',
+          image_front: 'https://rmkcdn.successfactors.com/feaf7fda/28020e5e-bbc8-436c-943d-f.png'
+        }
+      ];
+
+      let CURR_QUIZ_INDEX = 0;
+      let CURR_QUIZ_ANSWER = null;
+      let IDENTIFIER_RESULT = [];
+
+      const createResultElement = (result) => {
+        return `
+          <li class="explore-item">
+            <div style="background-image: url(${result.image_front})" class="explore-item-main">
+              <h2 class="explore-item-title">${result.acronym}</h2>
+              <h3 class="explore-item-desc">${result.title}</h3>
+            </div>
+            <div class="explore-item-overlay">
+              <p class="explore-item-desc">${result.description}</p>
+              <a href="${result.link}" class="c-media-contain explore-item-btn">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/e8200e02-b588-46f8-8675-5.svg" alt="" />
+              </a>
+            </div>
+          </li>
+        `;
+      };
+
+      const createOptionElement = (option) => {
+        return `
+          <li class="banner-option-item js-quiz-option-item">
+            <input id="${option.id}" type="radio" name="quizOption" class="option-item-input" value="${option.id}" />
+            <label for="${option.id}" class="c-btn c-btn--ghost option-item-button">
+              <span>${option.title}</span>
+            </label>
+          </li>
+        `;
+      };
+
+      const numPrefix = (num) => {
+        let prefixed = num;
+        if (num < 10) prefixed = '0' + num;
+        return prefixed;
+      };
+
+      const getQuestionItem = (index) => {
+        return postData.slice(index, index + 1)[0] || null;
+      };
+
+      const toggleNextButton = () => {
+        const nextButton = document.querySelector('.js-quiz-btn-next');
+        if (CURR_QUIZ_ANSWER !== null) {
+          if (!nextButton.classList.contains('is-active')) nextButton.classList.add('is-active');
+        } else {
+          nextButton.classList.remove('is-active');
+        }
+      };
+
+      const toggleOptionButton = (id) => {
+        const optionButton = document.querySelectorAll('.js-quiz-option-item label');
+
+        optionButton.forEach((btn) => {
+          if (parseInt(btn.getAttribute('for')) === id) btn.classList.add('is-active');
+          else btn.classList.remove('is-active');
+        });
+      };
+
+      const setOptionEvent = () => {
+        const quizOptionItem = [...document.querySelectorAll('.js-quiz-option-item input')];
+        quizOptionItem.forEach((opt) => {
+          opt.addEventListener('change', (e) => {
+            CURR_QUIZ_ANSWER = parseInt(e.target.getAttribute('value'));
+            toggleOptionButton(CURR_QUIZ_ANSWER);
+            toggleNextButton();
+          });
+        });
+      };
+
+      const updateQuizTotal = () => {
+        const quizTotal = document.querySelector('.js-quiz-total');
+        quizTotal.innerText = numPrefix(postData.length);
+      };
+
+      const updateQuizContent = () => {
+        updateQuizCurrent(CURR_QUIZ_INDEX);
+        updateQuizQuestion(CURR_QUIZ_INDEX);
+        updateQuizOption(CURR_QUIZ_INDEX);
+      };
+
+      const updateQuizCurrent = (quizIndex) => {
+        const quizCurrent = document.querySelector('.js-quiz-current');
+        quizCurrent.innerText = numPrefix(quizIndex + 1);
+      };
+
+      const updateQuizQuestion = (quizIndex) => {
+        const quizQuestion = document.querySelector('.js-quiz-question');
+        const questionItem = getQuestionItem(quizIndex);
+        quizQuestion.innerText = questionItem.question;
+      };
+
+      const updateQuizOption = (quizIndex) => {
+        const quizOption = document.querySelector('.js-quiz-option');
+        const questionItem = getQuestionItem(quizIndex);
+        quizOption.innerHTML = '';
+        questionItem.option.forEach((opt) => {
+          quizOption.innerHTML += createOptionElement(opt);
+        });
+        setOptionEvent();
+      };
+
+      const updateNextButton = () => {
+        const nextButton = document.querySelector('.js-quiz-btn-next');
+        if (CURR_QUIZ_INDEX === postData.length - 1) nextButton.innerText = 'Finish';
+        else nextButton.innerText = 'Next';
+      };
+
+      const updateIdentifierScore = () => {
+        const questionItem = getQuestionItem(CURR_QUIZ_INDEX);
+        const answer = questionItem.option[CURR_QUIZ_ANSWER];
+
+        Object.keys(identifiers).forEach((key) => {
+          if (answer.identifier.includes(key)) {
+            identifiers[key] += 1;
+          }
+        });
+      };
+
+      const updateIdentifierResult = () => {
+        const entries = Object.entries(identifiers);
+        const maxVal = Math.max(...entries.map((entry) => entry[1]));
+        IDENTIFIER_RESULT = entries.filter((entry) => entry[1] === maxVal).map((entry) => entry[0]);
+      };
+
+      const updateQuizResult = () => {
+        const quizResultList = document.querySelector('.js-quiz-result-list');
+        const resultItem = identifiers_item.filter((item) => IDENTIFIER_RESULT.includes(item.identifier)) || [];
+
+        quizResultList.innerHTML = '';
+        resultItem.forEach((item) => {
+          quizResultList.innerHTML += createResultElement(item);
+        });
+      };
+
+      const toggleResult = () => {
+        const quizContent = document.querySelector('.js-quiz-content');
+        if (quizContent.classList.contains('is-hide')) quizContent.classList.remove('is-hide');
+        else quizContent.classList.add('is-hide');
+      };
+
+      const onNextQuiz = () => {
+        updateIdentifierScore();
+        updateIdentifierResult();
+
+        CURR_QUIZ_ANSWER = null;
+        CURR_QUIZ_INDEX++;
+
+        if (CURR_QUIZ_INDEX <= postData.length - 1) {
+          toggleNextButton();
+          initQuiz();
+        } else {
+          updateQuizResult();
+          toggleResult();
+        }
+      };
+
+      const initQuiz = () => {
+        updateQuizTotal();
+        updateQuizContent();
+        updateNextButton();
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initQuiz();
+      });
+    </script>
+  </body>
+</html>

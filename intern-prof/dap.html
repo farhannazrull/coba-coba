@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <style>
+      :root {
+        --color-primary: #e94e14;
+        --color-white: #ffffff;
+        --color-green: #056047;
+        --color-black-90: #252525;
+        --color-black-80: #3d3d3d;
+        --color-black-70: #565656;
+        --color-black-30: #b6b6b6;
+        --color-black-10: #ebebeb;
+        --fs-section-title: 36px;
+      }
+
+      /* overide default classes styilng */
+      html body.coreCSB,
+      body {
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      html body.coreCSB .btn,
+      body .btn {
+        font-family: 'Roboto', sans-serif !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+
+      .outershell a.c-btn--primary {
+        color: var(--color-white) !important;
+      }
+      .outershell a.c-btn--primary:hover {
+        text-decoration: none;
+        filter: brightness(90%);
+      }
+      .outershell a.c-btn--transparent {
+        color: var(--color-primary) !important;
+      }
+      .outershell a.c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      #innershell {
+        width: 94%;
+        max-width: 1238px;
+      }
+      .inner {
+        max-width: none;
+      }
+      #content > .inner > div {
+        margin-bottom: 24px;
+      }
+      .searchwell {
+        padding: 24px;
+        border-radius: 32px;
+      }
+      .searchwell > form {
+        max-width: 1064px;
+        margin: 0 auto !important;
+      }
+      .searchwell > form > .container-fluid {
+        padding: 0;
+      }
+
+      #content ul,
+      #content ol {
+        list-style-position: initial;
+        padding-left: 0;
+      }
+      /* ------------------------------- */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .c-section-title {
+        font-size: clamp(24px, 2.65vw, 36px);
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+        line-height: 1.2;
+      }
+      .c-section-title .--highlight {
+        color: var(--color-green) !important;
+      }
+      .c-section-title.--center {
+        text-align: center;
+      }
+
+      .c-list-nostyle {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .c-btn {
+        outline: none;
+        border: 1px solid transparent !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .c-btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+      .c-btn--primary:hover {
+        filter: brightness(90%);
+      }
+
+      .c-btn--transparent {
+        color: var(--color-primary);
+        background-color: transparent;
+      }
+      .c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      .c-btn--ghost {
+        border-color: var(--color-white) !important;
+        color: var(--color-white);
+      }
+      .c-btn--ghost:hover {
+        background-color: var(--color-black-80);
+      }
+
+      .c-btn--banner {
+        width: fit-content;
+        padding: 8px 12px;
+        margin-top: 20px;
+      }
+
+      .c-btn--dropdown {
+        max-width: none;
+        justify-content: space-between;
+        padding: 16px;
+        font-weight: 700;
+        color: var(--color-black-90);
+      }
+      .c-btn--dropdown:hover {
+        text-decoration: none;
+      }
+
+      .c-media-cover > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .c-media-contain > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .tab-nav {
+        overflow-x: auto;
+        margin-bottom: 40px;
+      }
+
+      .tab-nav-list {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+        margin: 0 auto;
+      }
+
+      .tab-nav-btn {
+        height: 100%;
+        border-radius: 0;
+        padding: 6px 10px;
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--color-black-70);
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      .tab-nav-btn:hover {
+        text-decoration: none;
+      }
+
+      .tab-nav-btn.is-active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary) !important;
+      }
+
+      .js-tab-nav-content {
+        display: none;
+      }
+      .js-tab-nav-content.is-active {
+        display: block;
+      }
+
+      .c-form-input {
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: 1px solid #b6b6b6;
+        box-shadow: 0px 1px 0px 0px #0000001a;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-black-70) !important;
+      }
+      .c-form-input.--block {
+        width: 100%;
+      }
+      .c-form-input::placeholder {
+        color: #868686;
+      }
+
+      .c-dropdown-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: all 0.4s ease;
+      }
+      .c-dropdown-content > div {
+        overflow: hidden;
+      }
+      .c-dropdown-content-inner {
+        padding: 0 16px 16px;
+      }
+
+      .c-card-icon {
+        position: relative;
+        display: flex;
+        max-width: 90px;
+        max-height: 70px;
+        margin-bottom: 14px;
+      }
+      .c-card-icon > * {
+        height: initial !important;
+      }
+
+      .js-dropdown {
+        border-radius: 8px;
+        background-color: var(--color-white);
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        transition: all 0.4s ease;
+      }
+      /* .js-dropdown.is-active {
+        background-color: #eeeeee;
+      } */
+      .js-dropdown-btn {
+        transition: all 0.4s ease;
+      }
+      /* .js-dropdown.is-active .js-dropdown-btn {
+        padding-bottom: 6px;
+        color: var(--color-primary);
+      } */
+      .js-dropdown.is-active .js-dropdown-content {
+        grid-template-rows: 1fr;
+      }
+
+      .js-loadmore-item {
+        display: none;
+      }
+      .js-loadmore-btn.is-hide {
+        display: none;
+      }
+
+      .js-slider.slick-slider {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 26px;
+      }
+      .js-slider .slick-arrow {
+        display: flex;
+        outline: none;
+        border: none;
+        margin: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .back-top-btn {
+        position: fixed;
+        z-index: 5;
+        bottom: 0;
+        right: 3%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+      @media screen and (min-width: 1318px) {
+        .back-top-btn {
+          right: calc((100% - 1238px) / 4);
+          transform: translate(50%, -50%);
+        }
+      }
+
+      /* custom styling */
+      .banner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 650px;
+        aspect-ratio: 9 / 16;
+        margin-bottom: 40px;
+        padding: 44px 24px 24px;
+        border-radius: 32px;
+        background: url('https://rmkcdn.successfactors.com/0da85466/135dcb8e-5281-4f18-a3ab-d.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .banner-title {
+        margin-bottom: 10px;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-white) !important;
+      }
+
+      .banner-subtitle {
+        font-size: 16px;
+        line-height: 1.45;
+        color: var(--color-white) !important;
+      }
+
+      .banner-btn {
+        display: flex;
+      }
+      .banner-btn > * {
+        color: var(--color-white);
+      }
+
+      .wdyg {
+        margin-bottom: 48px;
+      }
+
+      .wdyg-title {
+        margin-bottom: 40px;
+      }
+
+      .wdyg-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 32px 24px;
+      }
+
+      .wdyg-item {
+        display: flex;
+        gap: 16px;
+        padding: 10px 8px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        background-color: var(--color-white);
+      }
+
+      .wdyg-item-img {
+        flex-shrink: 0;
+        flex-basis: 52px;
+        height: 52px;
+        max-width: 100px;
+      }
+      .wdyg-item-img > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .wdyg-item-title {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--color-black-90) !important;
+      }
+
+      .wdyg-item-desc {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--color-black-70);
+      }
+
+      .intern {
+        margin-bottom: 48px;
+        padding: 40px 24px 0;
+        border-radius: 32px;
+        background: url('https://rmkcdn.successfactors.com/feaf7fda/5806d9e4-c4aa-49d3-8799-f.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      .intern-title {
+        margin-bottom: 12px;
+        color: var(--color-white) !important;
+        text-wrap: balance;
+      }
+
+      .intern-subtitle {
+        margin-bottom: 34px;
+        color: var(--color-white) !important;
+        font-size: 14px;
+        font-weight: 400;
+        text-wrap: balance;
+        text-align: center;
+      }
+
+      .intern-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 34px;
+      }
+
+      .intern-content:not(.--image) {
+        flex: 1;
+      }
+
+      .intern-content.--image {
+        order: 3;
+      }
+      .intern-content.--image > * {
+        display: flex;
+      }
+
+      .intern-content-img {
+        max-width: 88px;
+        aspect-ratio: 88 / 45;
+        margin-bottom: 16px;
+      }
+
+      .intern-content-title {
+        margin-bottom: 8px;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--color-white) !important;
+        text-wrap: balance;
+      }
+
+      .intern-content-detail {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+      .intern-content-detail > * {
+        color: var(--color-white);
+      }
+
+      .intern-content-desc {
+        margin-bottom: 16px;
+        color: var(--color-white);
+        font-size: 14px;
+      }
+
+      .intern-content-cta {
+        width: fit-content;
+        padding: 0;
+        color: var(--color-white) !important;
+        font-size: 14px;
+      }
+      .intern-content-cta p {
+        color: var(--color-white) !important;
+      }
+
+      .program {
+        margin-bottom: 48px;
+        padding: 36px 0 52px;
+      }
+
+      .program-title {
+        margin-bottom: 48px;
+      }
+
+      .program-list {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 580px));
+        gap: 32px;
+        justify-content: center;
+        align-items: start;
+        padding: 0 24px !important;
+      }
+
+      .program-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .program-item-img {
+        flex-shrink: 0;
+        width: 31px;
+        height: 31px;
+      }
+      .program-item-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .program-item-title {
+        margin-bottom: 4px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--color-black-90);
+        line-height: 1.4;
+      }
+
+      .program-item-desc {
+        line-height: 1.2;
+        color: var(--color-black-70);
+      }
+
+      .lightup {
+        margin-bottom: 48px;
+      }
+
+      .lightup-title {
+        margin-bottom: 32px;
+      }
+
+      .lightup-item.slick-slide {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 32px 46px;
+      }
+
+      .lightup-item-title h2 {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--color-black-70) !important;
+        line-height: 1.3;
+      }
+
+      .lightup-item-img {
+        max-width: 418px;
+      }
+
+      .c-progress-bar {
+        position: relative;
+      }
+
+      .c-progress-bar-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px 0px #00000026 inset;
+        background-color: #e5e5e5;
+      }
+
+      .c-progress-bar-wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+
+      .c-progress-bar-list {
+        list-style: none;
+        position: relative;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      .c-progress-bar-list::before {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        transform: translate(-100%, 50%);
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(296.51deg, #019d72 14.87%, #cddfda 84.71%);
+      }
+
+      .c-progress-bar-list-item {
+        flex: 1;
+        position: relative;
+        min-width: 200px;
+      }
+      .c-progress-bar-list-item::before {
+        content: '';
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 33px;
+        background-color: #e5e5e5;
+      }
+
+      .c-progress-bar-list-item.is-active .list-item-line {
+        width: 50%;
+      }
+      .c-progress-bar-list-item.is-active .line-pointer {
+        opacity: 1;
+      }
+      .c-progress-bar-list-item.is-active .list-item-btn {
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--color-primary);
+      }
+
+      .list-item-line {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 20px;
+      }
+      .list-item-line.full-width {
+        width: 100%;
+      }
+
+      .line-bar-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .line-bar {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(1, 157, 114, 100%);
+      }
+      .c-progress-bar-list-item:first-child .line-bar {
+        border-radius: 10px 0 0 10px;
+        background: linear-gradient(296.51deg, #019d72 14.87%, #cddfda 84.71%);
+      }
+
+      .line-pointer {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+        display: block;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        box-shadow: 0px 2px 10px 0px #000e331a;
+        opacity: 0;
+      }
+
+      .list-item-btn {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        width: 100%;
+        padding: 0 0 58px;
+        background-color: transparent;
+        font-size: 16px;
+        color: #565656;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      .list-item-btn span {
+        display: block;
+        max-width: 180px;
+        height: 64px;
+        margin: 0 auto;
+      }
+
+      .elevate {
+        margin-bottom: 48px;
+      }
+
+      .elevate-title {
+        max-width: 780px;
+        margin: 0 auto 44px;
+      }
+
+      .elevate-list {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 292px));
+        justify-content: center;
+        gap: 40px 0;
+      }
+
+      .elevate-item {
+        height: 350px;
+        border-radius: 32px;
+        padding: 30px;
+        background-image: url('https://via.placeholder.com/292x350');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .elevate-item-title {
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--color-white);
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .elevate-item-desc {
+        color: var(--color-white);
+        text-align: center;
+        line-height: 1.25;
+      }
+
+      .selection {
+        margin-bottom: 48px;
+        padding: 62px 30px 90px;
+        background-color: #faf9f8;
+      }
+
+      .selection-title {
+        margin-bottom: 40px;
+      }
+
+      .selection-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .selection-item {
+        flex: 0 0 100%;
+      }
+
+      .selection-item-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0 16px;
+        height: 100%;
+      }
+
+      .selection-item-img {
+        flex-shrink: 0;
+        display: flex;
+        width: 74px;
+      }
+      .selection-item-img .c-card-icon {
+        margin: 0 auto;
+      }
+
+      .selection-item-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        background-color: var(--color-white);
+        box-shadow: 0px 2px 10px 0px #000e331a;
+      }
+
+      .selection-item-title {
+        text-wrap: balance;
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--color-black-80);
+      }
+
+      .testi {
+        position: relative;
+        margin-bottom: 48px;
+      }
+
+      .testi-container {
+        position: relative;
+        aspect-ratio: 328 / 825;
+        width: 100%;
+        max-height: 825px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .testi-content {
+        height: 100%;
+      }
+
+      .testi-content-wrapper {
+        position: relative;
+        height: 100%;
+        padding: 32px;
+        /* padding-bottom: 358px; */
+        border-radius: 32px;
+        overflow: hidden;
+        /* background-image: url('https://via.placeholder.com/1920x1080'); */
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .testi-content-cover {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .testi-content-cover.--desktop {
+        display: none;
+      }
+      @media screen and (min-width: 768px) {
+        .testi-content-cover.--mobile {
+          display: none;
+        }
+        .testi-content-cover.--desktop {
+          display: block;
+        }
+      }
+
+      .testi-content-container {
+        text-align: center;
+      }
+
+      .testi-title {
+        margin-bottom: 20px;
+        color: var(--color-white) !important;
+        text-align: center;
+      }
+
+      .testi-content-title {
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--color-white) !important;
+        text-align: center;
+      }
+
+      .testi-content-detail {
+        font-size: 14px;
+        color: var(--color-black-10);
+      }
+
+      .testi-list-wrapper {
+        position: absolute;
+        z-index: 1;
+        top: 282px;
+        width: 100%;
+        overflow: auto;
+        pointer-events: none;
+      }
+
+      .testi-list {
+        /* position: absolute;
+        bottom: 32px; */
+        display: flex;
+        /* flex-direction: column; */
+        /* justify-content: center; */
+        gap: 24px;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 0 32px !important;
+      }
+      .testi-list-item {
+        width: max-content;
+        min-width: 170px;
+        pointer-events: all;
+      }
+
+      .testi-btn {
+        /* justify-content: flex-start; */
+        max-width: none;
+        gap: 10px;
+        padding: 8px 16px;
+        border-color: var(--color-white) !important;
+        background: linear-gradient(243.72deg, rgba(255, 255, 255, 0.75) 49.24%, rgba(255, 255, 255, 0) 132.49%);
+        text-align: left;
+      }
+
+      .testi-btn.is-active {
+        background: transparent;
+        background-color: var(--color-primary);
+        border-color: var(--color-primary) !important;
+        box-shadow: 0px 2px 10px 0px #00000014;
+      }
+
+      .testi-btn-img {
+        aspect-ratio: 1 / 1;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .testi-btn-name,
+      .testi-btn-position {
+        font-size: 14px;
+      }
+
+      .testi-btn.is-active .testi-btn-name,
+      .testi-btn.is-active .testi-btn-position {
+        color: var(--color-white);
+      }
+
+      .testi-btn-name {
+        margin-bottom: 6px;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--color-black-90);
+      }
+
+      .testi-btn-position {
+        font-weight: 400;
+        line-height: 1;
+        color: var(--color-black-70);
+      }
+
+      .question {
+        margin-bottom: 48px;
+        padding: 48px 0;
+        background-color: #faf9f8;
+      }
+
+      .question-title {
+        margin-bottom: 40px;
+      }
+
+      .question-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        max-width: 674px;
+        margin: 0 auto;
+      }
+
+      .question-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .question-item-btn span {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        max-width: 558px;
+      }
+
+      .question-item-desc {
+        line-height: 20px;
+        max-width: 558px;
+        color: var(--color-black-70);
+      }
+
+      .question-btn {
+        padding: 0;
+      }
+
+      .join {
+        margin-bottom: 48px;
+        padding: 34px 38px;
+        background-image: url('https://rmkcdn.successfactors.com/feaf7fda/0c35a0a4-62f8-426b-9bf4-7.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .join-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .join-wrapper-cta {
+        display: flex;
+        gap: 16px;
+      }
+
+      .join-title {
+        max-width: 676px;
+        font-weight: 700;
+        font-size: clamp(24px, 3vw, 40px);
+        color: var(--color-white) !important;
+      }
+      .join-title .--highlight {
+        font-weight: 800;
+      }
+
+      .join-btn {
+        text-align: center;
+      }
+      .join-btn span {
+        color: var(--color-white) !important;
+      }
+      @media screen and (min-width: 768px) {
+        .join-btn {
+          min-width: 195px;
+        }
+      }
+
+      .c-footer {
+        padding: 32px 16px;
+      }
+
+      .footer-logo {
+        height: 107px;
+        max-width: 152px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu-title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+      .footer-menu-title > h1 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-black-30);
+      }
+      .footer-menu-title-line {
+        flex: 1;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        row-gap: 24px;
+      }
+
+      .footer-cat {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+      }
+
+      .outershell a.footer-cat-title {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.2;
+      }
+
+      .footer-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        margin-top: 16px;
+      }
+
+      .outershell .footer-list-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 200px;
+        width: fit-content;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        color: #8d8d8d !important;
+        line-height: 1.6;
+      }
+      .outershell .footer-list-title:hover {
+        text-decoration: underline;
+      }
+
+      .outershell .footer-list-btn {
+        width: fit-content;
+        max-width: none;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .footer-social-item > a {
+        display: block;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+
+      .footer-bottom * {
+        font-size: 12px;
+      }
+
+      .footer-bottom a {
+        display: block;
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom-left {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px 10px;
+        font-weight: 700;
+        color: #8d8d8d !important;
+      }
+
+      .footer-line {
+        display: flex;
+      }
+      .footer-line-item {
+        flex: 1;
+        height: 6px;
+        background-color: #ffc629;
+      }
+      .footer-line-item.--center {
+        flex: 2;
+        background-color: var(--color-primary);
+      }
+
+      @media screen and (min-width: 480px) {
+        .banner {
+          justify-content: center;
+          max-height: 536px;
+          aspect-ratio: 16 / 9;
+          padding: 24px;
+          background-image: url('https://rmkcdn.successfactors.com/0da85466/47abe959-fe10-424b-9e50-5.jpg');
+        }
+
+        .banner-subtitle {
+          max-width: 472px;
+          font-size: 18px;
+        }
+
+        .intern-subtitle {
+          margin-bottom: 64px;
+          font-size: 16px;
+        }
+
+        .intern-wrapper {
+          flex-direction: row;
+        }
+
+        .selection-item {
+          flex: 0 0 80%;
+        }
+
+        .wdyg-list {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .wdyg-item {
+          flex-direction: column;
+          align-items: center;
+          flex-basis: 200px;
+        }
+
+        .wdyg-item-img {
+          flex-basis: unset;
+          height: 94px;
+          max-width: 100px;
+        }
+
+        .wdyg-item-title {
+          text-align: center;
+        }
+
+        .wdyg-item-desc {
+          text-align: center;
+        }
+
+        .testi-container {
+          width: auto;
+          aspect-ratio: 9 / 16;
+        }
+        .testi-list-wrapper {
+          top: 252px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .c-btn--banner {
+          width: 100%;
+          padding: 12px;
+        }
+
+        .banner {
+          padding: 24px 80px;
+        }
+
+        .wdyg-item {
+          flex-basis: 284px;
+          padding: 44px 20px;
+        }
+
+        .wdyg-item-title {
+          margin-bottom: 16px;
+        }
+
+        .intern {
+          padding: 40px 40px 0;
+        }
+
+        .intern-content-detail,
+        .intern-content-desc,
+        .intern-content-cta {
+          font-size: 16px;
+        }
+
+        .program-list {
+          grid-template-columns: repeat(2, minmax(0, 580px));
+          justify-content: space-between;
+          padding: 0 !important;
+        }
+
+        .program-item-title {
+          font-size: 24px;
+        }
+
+        .lightup-item.slick-slide {
+          flex-direction: row;
+          justify-content: space-around;
+        }
+
+        .lightup-item-title {
+          max-width: 400px;
+        }
+
+        .lightup-item-img {
+          max-width: none;
+        }
+
+        .elevate-list {
+          grid-template-columns: repeat(2, minmax(0, 292px));
+          gap: 0 40px;
+        }
+
+        .elevate-item:nth-child(even) {
+          margin-top: 40px;
+        }
+
+        .selection-item {
+          flex: 0 0 125px;
+        }
+        .selection-item-wrapper {
+          flex-direction: column;
+        }
+        .selection-item-img {
+          width: auto;
+          height: 70px;
+        }
+        .selection-item-content {
+          min-height: 115px;
+        }
+
+        .join-wrapper {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .testi-container {
+          aspect-ratio: unset;
+        }
+        .testi-content-wrapper {
+          display: flex;
+          align-items: center;
+          padding-bottom: 146px;
+        }
+
+        .testi-content-container {
+          flex-basis: 556px;
+        }
+
+        .testi-list-wrapper {
+          bottom: 32px;
+          top: unset;
+        }
+        .testi-list {
+          /* flex-direction: row; */
+          justify-content: center;
+          width: 100%;
+        }
+        .testi-list-item {
+          flex-basis: 232px;
+        }
+
+        .testi-content-container {
+          text-align: left;
+        }
+        .testi-title {
+          max-width: 366px;
+          text-align: left;
+        }
+        .testi-content-title {
+          font-size: 22px;
+          text-align: left;
+        }
+
+        .testi-btn {
+          padding: 20px 16px;
+          justify-content: flex-start;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        .intern {
+          background-image: url('https://rmkcdn.successfactors.com/feaf7fda/da92c8a8-ce5b-4062-8f51-6.png');
+        }
+
+        .intern-subtitle {
+          margin-bottom: 10px;
+        }
+
+        .intern-wrapper {
+          gap: 6px;
+        }
+
+        .intern-content:first-child {
+          order: 1;
+        }
+        .intern-content.--image {
+          order: 2;
+          flex: 2;
+          max-width: 570px;
+        }
+        .intern-content:last-child {
+          order: 3;
+        }
+
+        .intern-content-title {
+          font-size: 26px;
+        }
+
+        .lightup-item-title h2 {
+          font-size: 24px;
+        }
+
+        .testi-content-wrapper {
+          min-height: 484px;
+          padding-bottom: 32px;
+        }
+
+        .testi-list-wrapper {
+          bottom: auto;
+          top: 50%;
+          right: 32px;
+          transform: translateY(-50%);
+        }
+        .testi-list {
+          flex-direction: column;
+          width: fit-content;
+          margin-right: 0;
+          /* bottom: auto;
+          top: 50%;
+          right: 32px;
+          transform: translateY(-50%); */
+          padding: 0 !important;
+        }
+
+        .testi-list-item {
+          flex-basis: auto;
+          width: auto;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .program-item-title {
+          font-size: 26px;
+        }
+
+        .elevate-list {
+          grid-template-columns: repeat(4, minmax(0, 292px));
+        }
+
+        .lightup-title {
+          margin-bottom: 68px;
+        }
+        .lightup-item-title h2 {
+          font-size: 26px;
+        }
+
+        .testi-content-wrapper {
+          padding-left: 64px;
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button class="c-btn c-btn--primary back-top-btn js-back-top-btn">
+        <img src="https://rmkcdn.successfactors.com/feaf7fda/b165550f-8290-4521-9b99-4.svg" alt="" />
+      </button>
+
+      <section class="banner">
+        <div class="banner-content">
+          <h1 class="banner-title">The First Step to a Brilliant<br />Career Journey</h1>
+          <h2 class="banner-subtitle">
+            Gain your professional banking experience through the Regular Internship and the Danamon Apprenticeship
+            Program (Kampus Merdeka)
+          </h2>
+        </div>
+      </section>
+
+      <section class="wdyg">
+        <h1 class="c-section-title --center wdyg-title">What Do You Get from the Internship?</h1>
+        <ul class="c-list-nostyle wdyg-list">
+          <li class="wdyg-item">
+            <div class="wdyg-item-img">
+              <img src="https://rmkcdn.successfactors.com/0da85466/ef5c1303-746b-4015-a4f2-2.png" alt="" />
+            </div>
+            <div>
+              <h2 class="wdyg-item-title">Certificate</h2>
+              <p class="wdyg-item-desc">Support your future career job with real work experience</p>
+            </div>
+          </li>
+          <li class="wdyg-item">
+            <div class="wdyg-item-img">
+              <img src="https://rmkcdn.successfactors.com/0da85466/5396f7b0-2933-46e0-8a9f-9.png" alt="" />
+            </div>
+            <div>
+              <h2 class="wdyg-item-title">Dedicated Leads Professional</h2>
+              <p class="wdyg-item-desc">mentors to navigate your early career paths</p>
+            </div>
+          </li>
+          <li class="wdyg-item">
+            <div class="wdyg-item-img">
+              <img src="https://rmkcdn.successfactors.com/0da85466/a73733f7-8f2b-4616-824f-a.png" alt="" />
+            </div>
+            <div>
+              <h2 class="wdyg-item-title">Real Projects</h2>
+              <p class="wdyg-item-desc">Handle hands-on projects to enhance your portfolio</p>
+            </div>
+          </li>
+          <li class="wdyg-item">
+            <div class="wdyg-item-img">
+              <img src="https://rmkcdn.successfactors.com/0da85466/8bc4d7c3-a4d9-402a-a7b9-6.png" alt="" />
+            </div>
+            <div>
+              <h2 class="wdyg-item-title">Course Conversion</h2>
+              <p class="wdyg-item-desc">Get 20 credits of course conversion in one semester</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="intern">
+        <h1 class="c-section-title --center intern-title">Which Internship Program is Right for You?</h1>
+        <h2 class="intern-subtitle">
+          The future opportunity is in your hands. Join us and build a successful career together!
+        </h2>
+        <div class="intern-wrapper">
+          <div class="intern-content">
+            <h3 class="intern-content-title">Regular Internship</h3>
+            <div class="intern-content-detail">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/ad1bfd63-2242-4976-bbb0-9.svg" alt="" />
+              <p>Open</p>
+            </div>
+            <p class="intern-content-desc">
+              Develop professional skills in a collaborative work environment with min. 3-month regular program
+            </p>
+            <a href="#" class="c-btn c-btn--transparent intern-content-cta">
+              <p>Opening Soon</p>
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/e8200e02-b588-46f8-8675-5.svg" alt="" />
+            </a>
+          </div>
+          <div class="intern-content --image">
+            <div class="c-media-contain">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/9e77d560-980a-4756-a4bc-6.png" alt="" />
+            </div>
+          </div>
+          <div class="intern-content">
+            <div class="intern-content-img c-media-cover">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/44131b49-fcfb-4440-9ee3-d.png" alt="" />
+            </div>
+            <h3 class="intern-content-title">Danamon Apprenticeship Program</h3>
+            <div class="intern-content-detail">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/ad1bfd63-2242-4976-bbb0-9.svg" alt="" />
+              <p>Refer to MSIB Kampus Merdeka Opening Date</p>
+            </div>
+            <p class="intern-content-desc">
+              Comprehensive learning apprenticeship program in collaboration with Kampus Merdeka
+            </p>
+            <a href="#" class="c-btn c-btn--transparent intern-content-cta">
+              <p>Opening Soon</p>
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/e8200e02-b588-46f8-8675-5.svg" alt="" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="program">
+        <h1 class="c-section-title --center program-title">Program <span class="--highlight">Qualifications</span></h1>
+        <ul class="c-list-nostyle program-list">
+          <li class="program-item">
+            <div class="program-item-img">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/628d9b87-d994-4525-af6d-4.svg" alt="" />
+            </div>
+            <div>
+              <h2 class="program-item-title">Bachelor from Reputable Universities</h2>
+              <p class="program-item-desc">
+                Active students (Regular) or min. GPA of 3.25 on a 4.00 grade scale in the 5th semester (DAP)
+              </p>
+            </div>
+          </li>
+          <li class="program-item">
+            <div class="program-item-img">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/628d9b87-d994-4525-af6d-4.svg" alt="" />
+            </div>
+            <div>
+              <h2 class="program-item-title">Advanced in MS Office</h2>
+              <p class="program-item-desc">Able to operate Microsoft Office (MS Word, MS Excel, etc)</p>
+            </div>
+          </li>
+          <li class="program-item">
+            <div class="program-item-img">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/628d9b87-d994-4525-af6d-4.svg" alt="" />
+            </div>
+            <div>
+              <h2 class="program-item-title">Strong Interpersonal Skills</h2>
+              <p class="program-item-desc">
+                Have analytical thinking, problem-solving, detail-oriented, and good teamwork
+              </p>
+            </div>
+          </li>
+          <li class="program-item">
+            <div class="program-item-img">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/628d9b87-d994-4525-af6d-4.svg" alt="" />
+            </div>
+            <div>
+              <h2 class="program-item-title">Fluent in English</h2>
+              <p class="program-item-desc">Having good English proficiency (written and communication)</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Learn from the best -->
+      <section class="lightup">
+        <h1 class="c-section-title --center lightup-title">
+          Learn from The Best and Experience an <span class="--highlight">Excellent Internship</span>
+        </h1>
+        <div class="js-slider">
+          <!-- auto generate -->
+        </div>
+        <div class="c-progress-bar js-c-progress-bar">
+          <div class="c-progress-bar-line"></div>
+          <div class="c-progress-bar-wrapper">
+            <ul class="c-progress-bar-list">
+              <!-- auto generate -->
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- <section class="elevate">
+        <h1 class="c-section-title --center elevate-title">
+          Elevate Your Internship Experience for<br />Future Professionals
+        </h1>
+        <ul class="c-list-nostyle elevate-list">
+          <li class="elevate-item">
+            <h2 class="elevate-item-title">Project Participation</h2>
+            <p class="elevate-item-desc">Involved in the ongoing initiative and strategic projects at Danamon</p>
+          </li>
+          <li class="elevate-item">
+            <h2 class="elevate-item-title">Project Participation</h2>
+            <p class="elevate-item-desc">Involved in the ongoing initiative and strategic projects at Danamon</p>
+          </li>
+          <li class="elevate-item">
+            <h2 class="elevate-item-title">Project Participation</h2>
+            <p class="elevate-item-desc">Involved in the ongoing initiative and strategic projects at Danamon</p>
+          </li>
+          <li class="elevate-item">
+            <h2 class="elevate-item-title">Project Participation</h2>
+            <p class="elevate-item-desc">Involved in the ongoing initiative and strategic projects at Danamon</p>
+          </li>
+        </ul>
+      </section> -->
+
+      <section class="selection">
+        <h1 class="c-section-title --center selection-title">Selection <span class="--highlight">Process</span></h1>
+        <ul class="c-list-nostyle selection-list">
+          <li class="selection-item">
+            <div class="selection-item-wrapper">
+              <div class="selection-item-img">
+                <div class="c-card-icon c-media-contain">
+                  <img src="https://rmkcdn.successfactors.com/0da85466/297deae5-c9a3-439c-9514-2.png" alt="" />
+                </div>
+              </div>
+              <div class="selection-item-content">
+                <h2 class="selection-item-title">CV Screening</h2>
+              </div>
+            </div>
+          </li>
+          <li class="selection-item">
+            <div class="selection-item-wrapper">
+              <div class="selection-item-img">
+                <div class="c-card-icon c-media-contain">
+                  <img src="https://rmkcdn.successfactors.com/0da85466/0d888aba-370e-4a6e-bc01-3.png" alt="" />
+                </div>
+              </div>
+              <div class="selection-item-content">
+                <h2 class="selection-item-title">Competency Based Interview by HR & User</h2>
+              </div>
+            </div>
+          </li>
+          <li class="selection-item">
+            <div class="selection-item-wrapper">
+              <div class="selection-item-img">
+                <div class="c-card-icon c-media-contain">
+                  <img src="https://rmkcdn.successfactors.com/0da85466/aab1f75b-7ac5-4637-b33a-5.png" alt="" />
+                </div>
+              </div>
+              <div class="selection-item-content">
+                <h2 class="selection-item-title">Know Your Employee</h2>
+              </div>
+            </div>
+          </li>
+          <li class="selection-item">
+            <div class="selection-item-wrapper">
+              <div class="selection-item-img">
+                <div class="c-card-icon c-media-contain">
+                  <img src="https://rmkcdn.successfactors.com/0da85466/30dcbfb0-5eb8-45e8-a31c-2.png" alt="" />
+                </div>
+              </div>
+              <div class="selection-item-content">
+                <h2 class="selection-item-title">Onboarding</h2>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="testi js-tab-nav">
+        <div class="testi-container">
+          <div class="testi-list-wrapper">
+            <ul class="c-list-nostyle testi-list">
+              <li class="testi-list-item">
+                <button class="c-btn testi-btn js-tab-nav-btn is-active" data-target="tabTesti1">
+                  <div class="testi-btn-img c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/e2e8389a-0c2f-4070-ba23-a.png" alt="" />
+                  </div>
+                  <div>
+                    <h3 class="testi-btn-name">Deno</h3>
+                    <h4 class="testi-btn-position">Ex-DAP Batch 2</h4>
+                  </div>
+                </button>
+              </li>
+              <li class="testi-list-item">
+                <button class="c-btn testi-btn js-tab-nav-btn" data-target="tabTesti2">
+                  <div class="testi-btn-img c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/e9a868a8-b621-41c2-acc5-7.png" alt="" />
+                  </div>
+                  <div>
+                    <h3 class="testi-btn-name">Jessenia</h3>
+                    <h4 class="testi-btn-position">Ex-DAP Batch 3</h4>
+                  </div>
+                </button>
+              </li>
+              <li class="testi-list-item">
+                <button class="c-btn testi-btn js-tab-nav-btn" data-target="tabTesti3">
+                  <div class="testi-btn-img c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/6ece8c93-a4ec-43a6-9a5f-5.png" alt="" />
+                  </div>
+                  <div>
+                    <h3 class="testi-btn-name">Michael</h3>
+                    <h4 class="testi-btn-position">Ex-Regular Internship</h4>
+                  </div>
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div id="tabTesti1" class="testi-content js-tab-nav-content is-active">
+            <div class="testi-content-wrapper">
+              <div class="testi-content-cover --desktop c-media-cover">
+                <img src="https://rmkcdn.successfactors.com/0da85466/b5dcd43e-1bde-498e-9f5d-1.png" alt="" />
+              </div>
+              <div class="testi-content-cover --mobile c-media-cover">
+                <img src="https://rmkcdn.successfactors.com/0da85466/9e1c569d-9cf0-4b14-81ea-c.png" alt="" />
+              </div>
+              <div class="testi-content-container">
+                <h1 class="c-section-title testi-title">What Do the Hearts of Danamoners Say?</h1>
+                <h2 class="testi-content-title">
+                  DAP program taught essential skills and BISA Value, providing insightful training. These experiences
+                  led me to continue as a Danamon Bankers Trainee.
+                </h2>
+                <div>
+                  <span class="testi-content-detail">Deno</span>
+                  <span class="testi-content-detail">-</span>
+                  <span class="testi-content-detail">Ex-DAP Batch 2 & DBT Batch 21</span>
+                </div>
+                <div>
+                  <span class="testi-content-detail">Custody Operations</span>
+                  <span class="testi-content-detail">-</span>
+                  <span class="testi-content-detail">Fund & Custody Compliance Intern</span>
+                </div>
+                <div>
+                  <span class="testi-content-detail">Gadjah Mada University</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tabTesti2" class="testi-content js-tab-nav-content">
+            <div class="testi-content-wrapper">
+              <div class="testi-content-cover --desktop c-media-cover">
+                <img src="https://rmkcdn.successfactors.com/0da85466/02e7787f-2e2b-40c9-8573-4.png" alt="" />
+              </div>
+              <div class="testi-content-cover --mobile c-media-cover">
+                <img src="https://rmkcdn.successfactors.com/0da85466/87adfabe-6806-4459-a70d-b.png" alt="" />
+              </div>
+              <div class="testi-content-container">
+                <h1 class="c-section-title testi-title">What Do the Hearts of Danamoners Say?</h1>
+                <h2 class="testi-content-title">
+                  DAP offers exceptional learning with hands-on projects, excellent mentorship, and comprehensive
+                  training. It enhances technical skills and fosters integrity, collaboration, and adaptability in
+                  Business unit.
+                </h2>
+                <div>
+                  <span class="testi-content-detail">Jessenia</span>
+                  <span class="testi-content-detail">-</span>
+                  <span class="testi-content-detail">Ex-DAP Batch 3</span>
+                </div>
+                <div>
+                  <span class="testi-content-detail">Transaction Banking Strategy</span>
+                  <span class="testi-content-detail">-</span>
+                  <span class="testi-content-detail">MIS Intern</span>
+                </div>
+                <div>
+                  <span class="testi-content-detail">Gadjah Mada University</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tabTesti3" class="testi-content js-tab-nav-content">
+            <div class="testi-content-wrapper">
+              <div class="testi-content-cover --desktop c-media-cover">
+                <img src="https://rmkcdn.successfactors.com/0da85466/500f7213-3a1b-4d1f-ad9d-3.png" alt="" />
+              </div>
+              <div class="testi-content-cover --mobile c-media-cover">
+                <img src="https://rmkcdn.successfactors.com/0da85466/c1e41983-bbf8-4c24-87e7-9.png" alt="" />
+              </div>
+              <div class="testi-content-container">
+                <h1 class="c-section-title testi-title">What Do the Hearts of Danamoners Say?</h1>
+                <h2 class="testi-content-title">
+                  The Regular Internship program has taught me essential credit analysis skills and given me valuable
+                  training through the outstanding mentors. Overall, experience has given me good exposure to the credit
+                  field.
+                </h2>
+                <div>
+                  <span class="testi-content-detail">Michael</span>
+                  <span class="testi-content-detail">-</span>
+                  <span class="testi-content-detail">Ex-Regular Internship</span>
+                </div>
+                <div>
+                  <span class="testi-content-detail">Credit Risk Intern</span>
+                </div>
+                <div>
+                  <span class="testi-content-detail">Arizona State University</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="question">
+        <h1 class="c-section-title --center question-title">
+          Questions Related to the <span class="--highlight">Internship Program</span>
+        </h1>
+        <div class="question-content js-loadmore" data-show="4">
+          <ul class="c-list-nostyle question-list js-loadmore-list">
+            <li class="question-item js-dropdown js-loadmore-item">
+              <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                <span>What is the difference between a DAP and a Regular Internship?</span>
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+              </button>
+              <div class="c-dropdown-content js-dropdown-content">
+                <div>
+                  <div class="c-dropdown-content-inner">
+                    <p class="question-item-desc">
+                      DAP is a Kampus Merdeka learning program (training, leadership camp, hands-on projects, & daily
+                      tasks), and Regular Internship is a learning experience in a division including hands-on projects
+                      (according to the division's needs) and daily tasks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="question-item js-dropdown js-loadmore-item">
+              <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                <span>What will be taught in the DAP training?</span>
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+              </button>
+              <div class="c-dropdown-content js-dropdown-content">
+                <div>
+                  <div class="c-dropdown-content-inner">
+                    <p class="question-item-desc">
+                      The DAP training will be taught about bank-wide learning, management, and leadership.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="question-item js-dropdown js-loadmore-item">
+              <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                <span> Where is the DAP training held?</span>
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+              </button>
+              <div class="c-dropdown-content js-dropdown-content">
+                <div>
+                  <div class="c-dropdown-content-inner">
+                    <p class="question-item-desc">The training is held at Danamon Corporate University, Ciawi.</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="question-item js-dropdown js-loadmore-item">
+              <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                <span>Does the DAP Program and regular internship receive an allowance?</span>
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+              </button>
+              <div class="c-dropdown-content js-dropdown-content">
+                <div>
+                  <div class="c-dropdown-content-inner">
+                    <p class="question-item-desc">
+                      Yes, program participants will receive an allowance according to applicable regulations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="question-item js-dropdown js-loadmore-item">
+              <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                <span>Can the DAP and Regular Internship program work in various cities?</span>
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+              </button>
+              <div class="c-dropdown-content js-dropdown-content">
+                <div>
+                  <div class="c-dropdown-content-inner">
+                    <p class="question-item-desc">
+                      Yes, interns can work in all Danamon regions based on the division's needs and participants'
+                      domicile.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="question-item js-dropdown js-loadmore-item">
+              <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                <span>Are there any accommodations during the in-class training in Ciawi?</span>
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+              </button>
+              <div class="c-dropdown-content js-dropdown-content">
+                <div>
+                  <div class="c-dropdown-content-inner">
+                    <p class="question-item-desc">
+                      Yes, all trainees are provided with accommodation such as staying at Danamon's Corporate Campus
+                      during Phase 1, dormitory, 3x daily meals, snacks, and laundry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --more">
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg" alt="" />
+            <span>View More</span>
+          </button>
+          <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --less">
+            <img
+              style="transform: rotate(180deg)"
+              src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg"
+              alt=""
+            />
+            <span>View Less</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="join">
+        <div class="join-wrapper">
+          <h1 class="join-title">
+            Find Your Ideal Profession with the Regular Internship & Danamon Apprenticeship Program
+          </h1>
+          <div class="join-wrapper-cta">
+            <a href="#" class="c-btn c-btn--ghost join-btn">
+              <span>Opening Soon</span>
+            </a>
+            <a href="#" class="c-btn c-btn--ghost join-btn">
+              <span>Opening Soon</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="c-footer">
+        <div class="footer-logo c-media-cover">
+          <img src="https://rmkcdn.successfactors.com/feaf7fda/6660e6e8-3bae-450e-aaef-d.png" alt="" />
+        </div>
+
+        <ul class="c-list-nostyle footer-menu">
+          <li class="footer-menu-item">
+            <ul class="c-list-nostyle footer-grid">
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/Life-as-Danamoners/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Life as Danamoners</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://careers.danamon.co.id/viewalljobs/" target="_blank" class="footer-cat-title"
+                      >Jobs</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/Professional-Hire/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Grow With Us</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Professional-Hire/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Professional Careers</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Danamon-Bankers-Trainee/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Management Trainee</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Internship/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Internship Program</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://careers.danamon.co.id/content/Events-and-Insights/" class="footer-cat-title"
+                      >Event & Insight</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/How-We-Hire/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >How We Hire</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="footer-menu-item">
+            <ul class="c-list-nostyle footer-grid">
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://www.danamon.co.id/id/Tentang-Danamon" target="_blank" class="footer-cat-title"
+                      >Tentang Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Profil Bank Danamon</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Informasi</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="http://careers.danamon.co.id/" target="_blank" class="footer-list-title">Karir</a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Investor</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://www.danamon.co.id/" target="_blank" class="footer-list-title">FAQ</a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/SBDK"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Suku Bunga Dasar Kredit</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://www.danamon.co.id/id/Personal" target="_blank" class="footer-list-title"
+                          >Bandingkan Produk</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/Hubungi-Kami"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Hubungi Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a href="tel:1500090" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/8a503906-3d56-46e3-983e-a.svg" alt="" />
+                          <span>Hello Danamon 1-500-090</span>
+                        </a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="mailto:hellodanamon@danamon.co.id" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/15734b26-e98f-491a-a9e3-7.svg" alt="" />
+                          <span>hellodanamon@danamon.co.id</span>
+                        </a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://api.whatsapp.com/send?phone=6285811500090" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/ed9eecac-724e-49b5-88ed-2.svg" alt="" />
+                          <span>0 858-1150-0090</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5" target="_blank" class="footer-cat-title"
+                      >Kantor Pusat</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <span class="footer-list-title">
+                          Jl. H. R. Rasuna Said C No.10 Karet Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12940
+                        </span>
+                        <a
+                          href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5"
+                          target="_blank"
+                          class="c-btn c-btn--transparent footer-list-btn"
+                        >
+                          <span>Get Direction</span>
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/6e125842-dd4a-4103-8509-b.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Perusahaan Induk</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                          target="_blank"
+                          class="footer-list-title"
+                        >
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/99da9ae5-ba2b-4b95-b70c-2.png" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Ekosistem Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                          target="_blank"
+                          class="footer-list-title"
+                        >
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/d137d2fc-51e9-45a6-9155-0.png" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="c-list-nostyle footer-social">
+          <li class="footer-social-item">
+            <a href="https://www.facebook.com/danamonindonesia" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/a5dc85c9-8203-42b4-9865-9.svg" alt="Facebook" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://twitter.com/danamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/81e743f5-ff3c-4d09-b4a6-0.svg" alt="Twitter" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://instagram.com/mydanamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/30eefa21-760f-4c02-be1b-5.svg" alt="Instagram" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://www.linkedin.com/company/bank-danamon-indonesia/" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/fae3bbec-a8d0-4f75-a80c-5.svg" alt="LinkedIn" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://www.tiktok.com/@bankdanamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/40bf6c8b-a261-45c6-ac40-0.svg" alt="TikTok" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://youtube.com/bankdanamonid" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/33057531-4d43-45fd-ad71-3.svg" alt="YouTube" />
+            </a>
+          </li>
+        </ul>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <p>
+              PT Bank Danamon Indonesia berizin dan diawasi oleh Otoritas Jasa Keuangan serta merupakan peserta
+              penjaminan LPS
+            </p>
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/98445091-49d7-4364-8c11-2.png" alt="" />
+          </div>
+        </div>
+
+        <div class="footer-line">
+          <div class="footer-line-item"></div>
+          <div class="footer-line-item --center"></div>
+          <div class="footer-line-item"></div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+      const lightupData = [
+        {
+          title: 'In-Class Training',
+          desc: "Gain an understanding of Bank Danamon's knowledge and products while training with mentors",
+          img: 'https://rmkcdn.successfactors.com/0da85466/ef5b175b-756c-4e37-b2f0-c.png'
+        },
+        {
+          title: 'Convertible Program to Academic Credits',
+          desc: 'Our curated internship program is equivalent to 900 hours, covering in-class learning, digital learning, and on-the-job learning, and is convertible to a maximum of 20 academic credits (SKS)',
+          img: 'https://rmkcdn.successfactors.com/0da85466/f33f511b-abfb-43a4-aa75-4.png'
+        },
+        {
+          title: 'Project Assignment',
+          desc: "Experience direct involvement in real projects with intensive coaching and mentoring from Danamon's leaders",
+          img: 'https://rmkcdn.successfactors.com/0da85466/f645285f-1acb-41f9-a8e9-8.png'
+        },
+        {
+          title: 'Final Evaluation',
+          desc: 'Complete your journey with a final presentation to unveil your transformative learning and growth at Bank Danamon',
+          img: 'https://rmkcdn.successfactors.com/0da85466/db838965-d949-487c-b322-7.png'
+        }
+      ];
+
+      const initLightup = () => {
+        const slider = document.querySelector('.js-slider');
+        const progressBar = document.querySelector('.c-progress-bar-list');
+
+        lightupData.forEach((item, i) => {
+          slider.innerHTML += `
+            <div class="lightup-item">
+              <div class="lightup-item-title">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/f6163e53-a258-4aab-88e5-2.png" alt="">
+                <h2>
+                  ${item.desc}
+                </h2>
+              </div>
+              <div class="lightup-item-img c-media-contain">
+                <img src="${item.img}" alt="${item.title}" />
+              </div>
+            </div>
+          `;
+
+          progressBar.innerHTML += `
+            <li class="c-progress-bar-list-item ${i === 0 ? 'is-active' : ''}">
+              <div class="list-item-line ${i === 0 ? 'is-active' : ''}">
+                <div class="line-bar-wrapper">
+                  <span class="line-bar"></span>
+                  <span class="line-pointer"></span>
+                </div>
+              </div>
+              <button class="list-item-btn ${i === 0 ? 'is-active' : ''}">
+                <span>${item.title}</span>
+              </button>
+            </li>
+          `;
+        });
+
+        initSlider();
+        initProgressBar();
+      };
+
+      const initSlider = () => {
+        $('.js-slider').slick({
+          infinite: false,
+          slidesToShow: 1,
+          prevArrow:
+            '<button type="button" class="slick-prev"><img src="https://rmkcdn.successfactors.com/feaf7fda/9f752b59-f580-48db-be0a-9.svg" /></button>',
+          nextArrow:
+            '<button type="button" class="slick-next"><img src="https://rmkcdn.successfactors.com/feaf7fda/27695184-a2c8-4d81-a0a6-8.svg" /></button>'
+        });
+        $('.js-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+          onProgressBarChange(false, nextSlide);
+        });
+      };
+
+      const initProgressBar = () => {
+        $('.list-item-btn').each(function (i, obj) {
+          const $thisBtn = $(obj);
+          $thisBtn.on('click', (e) => {
+            e.preventDefault();
+            onProgressBarChange(true, i);
+          });
+        });
+      };
+
+      const onProgressBarChange = (isChangeSlider, i) => {
+        const $listItem = $('.c-progress-bar-list-item');
+        const $targetListItem = $listItem.eq(i);
+        const $listItemLine = $('.list-item-line');
+
+        $listItem.not($targetListItem).removeClass('is-active');
+
+        $listItemLine.each(function (j, obj) {
+          if (j < i) $(obj).addClass('full-width');
+          else $(obj).removeClass('full-width');
+        });
+
+        $targetListItem.addClass('is-active');
+        if (isChangeSlider) $('.js-slider').slick('slickGoTo', i);
+      };
+
+      const initTabNav = () => {
+        const tabBtn = document.querySelectorAll('.js-tab-nav-btn');
+
+        tabBtn.forEach((btn) => {
+          const target = btn.dataset.target;
+          const targetContent = document.getElementById(target);
+
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const navParent = e.target.closest('.js-tab-nav');
+            const activeTabBtn = navParent.querySelector('.js-tab-nav-btn.is-active');
+            const activeTabContent = navParent.querySelector('.js-tab-nav-content.is-active');
+
+            activeTabBtn?.classList.remove('is-active');
+            activeTabContent?.classList.remove('is-active');
+
+            e.currentTarget?.classList.add('is-active');
+            targetContent?.classList.add('is-active');
+          });
+        });
+      };
+
+      const initDropdown = () => {
+        const dropdownBtns = document.querySelectorAll('.js-dropdown-btn');
+
+        dropdownBtns.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            const dropdownParent = e.currentTarget.closest('.js-dropdown');
+            if (dropdownParent.classList.contains('is-active')) dropdownParent.classList.remove('is-active');
+            else dropdownParent.classList.add('is-active');
+          });
+        });
+      };
+
+      const initLoadMore = () => {
+        const loadMore = document.querySelectorAll('.js-loadmore');
+
+        loadMore.forEach((el) => {
+          const dataShow = parseInt(el.dataset.show);
+          const dataList = [...el.querySelectorAll('.js-loadmore-item')];
+          const btnMore = el.querySelector('.js-loadmore-btn.--more');
+          const btnLess = el.querySelector('.js-loadmore-btn.--less');
+
+          if (dataList.length > dataShow) btnMore.classList.remove('is-hide');
+
+          dataList.slice(0, dataShow).forEach((item) => {
+            item.style.display = 'block';
+          });
+
+          btnMore.addEventListener('click', () => {
+            dataList.slice(0, dataList.length).forEach((item) => {
+              item.style.display = 'block';
+              btnMore.classList.add('is-hide');
+              btnLess.classList.remove('is-hide');
+            });
+          });
+
+          btnLess.addEventListener('click', () => {
+            dataList.slice(dataShow, dataList.length).forEach((item) => {
+              item.style.display = 'none';
+              btnMore.classList.remove('is-hide');
+              btnLess.classList.add('is-hide');
+            });
+          });
+        });
+      };
+
+      const initBackTopBtn = () => {
+        const btn = document.querySelector('.js-back-top-btn');
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initLightup();
+        initTabNav();
+        initDropdown();
+        initLoadMore();
+        initBackTopBtn();
+      });
+    </script>
+  </body>
+</html>

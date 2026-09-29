@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How we hire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+    <style>
+      :root {
+        --color-primary: #e94e14;
+        --color-white: #ffffff;
+        --color-green: #056047;
+        --color-black-90: #252525;
+        --color-black-80: #3d3d3d;
+        --color-black-70: #565656;
+        --color-black-30: #b6b6b6;
+        --fs-section-title: 36px;
+      }
+
+      /* overide default classes styilng */
+      html body.coreCSB,
+      body {
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      html body.coreCSB .btn,
+      body .btn {
+        font-family: 'Roboto', sans-serif !important;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+
+      .outershell a.c-btn--primary {
+        color: var(--color-white) !important;
+      }
+      .outershell a.c-btn--primary:hover {
+        text-decoration: none;
+        filter: brightness(90%);
+      }
+      .outershell a.c-btn--transparent {
+        color: var(--color-primary) !important;
+      }
+      .outershell a.c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      #innershell {
+        width: 94%;
+        max-width: 1238px;
+      }
+      .inner {
+        max-width: none;
+      }
+      #content > .inner > div {
+        margin-bottom: 24px;
+      }
+      .searchwell {
+        padding: 24px;
+        border-radius: 32px;
+      }
+      .searchwell > form {
+        max-width: 1064px;
+        margin: 0 auto !important;
+      }
+      .searchwell > form > .container-fluid {
+        padding: 0;
+      }
+
+      #content ul,
+      #content ol {
+        list-style-position: initial;
+        padding-left: 0;
+      }
+      /* ------------------------------- */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .c-section-title {
+        font-size: clamp(24px, 2.65vw, 36px);
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+        line-height: 1.2;
+      }
+      .c-section-title .--highlight {
+        color: var(--color-green) !important;
+      }
+      .c-section-title.--center {
+        text-align: center;
+      }
+
+      .c-section-item {
+        margin-bottom: 48px;
+      }
+
+      .c-list-nostyle {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .c-btn {
+        outline: none;
+        border: 1px solid transparent !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        max-width: 200px;
+        padding: 12px;
+        line-height: 1.5;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif !important;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .c-btn--primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+      .c-btn--primary:hover {
+        filter: brightness(90%);
+      }
+
+      .c-btn--transparent {
+        color: var(--color-primary);
+        background-color: transparent;
+      }
+      .c-btn--transparent:hover {
+        text-decoration: underline;
+      }
+
+      .c-btn--ghost {
+        border-color: var(--color-white) !important;
+        color: var(--color-white);
+      }
+      .c-btn--ghost:hover {
+        background-color: var(--color-black-80);
+      }
+
+      .c-btn--banner {
+        width: fit-content;
+        padding: 8px 12px;
+        margin-top: 20px;
+      }
+
+      .c-btn--dropdown {
+        max-width: none;
+        justify-content: space-between;
+        padding: 16px;
+        font-weight: 700;
+        color: var(--color-black-90);
+      }
+      .c-btn--dropdown:hover {
+        text-decoration: none;
+      }
+
+      .c-media-cover > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .c-media-contain > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .tab-nav {
+        overflow-x: auto;
+        margin-bottom: 40px;
+      }
+
+      .tab-nav-list {
+        display: flex;
+        gap: 32px;
+        width: max-content;
+        margin: 0 auto;
+      }
+
+      .tab-nav-btn {
+        height: 100%;
+        max-width: none;
+        border-radius: 0;
+        padding: 6px 10px;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--color-black-70);
+        line-height: 1.2;
+        cursor: pointer;
+      }
+      .tab-nav-btn:hover {
+        text-decoration: none;
+      }
+
+      .tab-nav-btn.is-active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary) !important;
+      }
+
+      .js-tab-nav-content {
+        display: none;
+      }
+      .js-tab-nav-content.is-active {
+        display: block;
+      }
+
+      .js-slider.slick-slider {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0 16px;
+      }
+      .js-slider .slick-prev {
+        order: 2;
+      }
+      .js-slider .slick-next {
+        order: 3;
+      }
+      .js-slider .slick-arrow {
+        display: flex;
+        outline: none;
+        border: none;
+        margin: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+      .js-slider .slick-slide {
+        padding: 0 12px;
+      }
+      .js-slider .slick-list {
+        padding: 16px 0;
+      }
+      @media screen and (min-width: 768px) {
+        .js-slider.slick-slider {
+          flex-wrap: nowrap;
+          gap: 0;
+        }
+        .js-slider .slick-prev {
+          order: unset;
+        }
+        .js-slider .slick-next {
+          order: unset;
+        }
+      }
+
+      .c-form-input {
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: 1px solid #b6b6b6;
+        box-shadow: 0px 1px 0px 0px #0000001a;
+        font-size: 16px;
+        line-height: 24px;
+        color: var(--color-black-70) !important;
+      }
+      .c-form-input.--block {
+        width: 100%;
+      }
+      .c-form-input::placeholder {
+        color: #868686;
+      }
+
+      .c-dropdown-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: all 0.4s ease;
+      }
+      .c-dropdown-content > div {
+        overflow: hidden;
+      }
+      .c-dropdown-content-inner {
+        padding: 0 16px 16px;
+      }
+
+      .c-card-icon {
+        position: relative;
+        max-width: 50px;
+        height: 50px;
+        margin-bottom: 14px;
+        padding: 8px;
+        border-radius: 4px;
+        background: linear-gradient(318.58deg, #ea4343 13.37%, #f9d4c0 123.98%);
+        box-shadow: 0px 1.0168006420135498px 5.08400297164917px 0px #00000014;
+      }
+      .c-card-icon::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 2.5px;
+        left: 2.5px;
+        width: 100%;
+        height: 100%;
+        background-color: #ba1515;
+        box-shadow: 0px 1.0168006420135498px 5.08400297164917px 0px #00000014;
+        border-radius: 4px;
+      }
+
+      .js-dropdown {
+        border-radius: 8px;
+        background-color: var(--color-white);
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        transition: all 0.4s ease;
+      }
+      /* .js-dropdown.is-active {
+        background-color: #eeeeee;
+      } */
+      .js-dropdown-btn {
+        transition: all 0.4s ease;
+      }
+      /* .js-dropdown.is-active .js-dropdown-btn {
+        padding-bottom: 6px;
+        color: var(--color-primary);
+      } */
+      .js-dropdown.is-active .js-dropdown-content {
+        grid-template-rows: 1fr;
+      }
+
+      .js-loadmore-item {
+        display: none;
+      }
+      .js-loadmore-btn.is-hide {
+        display: none;
+      }
+
+      .back-top-btn {
+        position: fixed;
+        z-index: 5;
+        bottom: 0;
+        right: 3%;
+        transform: translateY(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+      @media screen and (min-width: 1318px) {
+        .back-top-btn {
+          right: calc((100% - 1238px) / 4);
+          transform: translate(50%, -50%);
+        }
+      }
+
+      /* custom styling */
+      .banner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-height: 650px;
+        aspect-ratio: 9 / 16;
+        margin-bottom: 40px;
+        padding: 44px 24px 24px;
+        border-radius: 32px;
+        background: url('https://rmkcdn.successfactors.com/feaf7fda/20fffcee-25f8-438f-ba51-d.png');
+        background-position: bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .banner-title {
+        margin-bottom: 10px;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-white) !important;
+      }
+
+      .banner-subtitle {
+        font-size: 18px;
+        line-height: 1.45;
+        color: var(--color-white) !important;
+      }
+
+      .banner-btn {
+        display: flex;
+      }
+      .banner-btn > * {
+        color: var(--color-white);
+      }
+
+      .hire {
+        margin-bottom: 48px;
+      }
+
+      .hire-title {
+        margin-bottom: 18px;
+        font-size: 40px;
+      }
+
+      .hire-desc {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        color: var(--color-black-70);
+      }
+
+      .hire-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 46px 38px;
+        gap: 38px;
+      }
+      .hire-item:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .hire-img {
+        width: 100%;
+        max-width: 553px;
+        max-height: 340px;
+        aspect-ratio: 553 / 340;
+        border-radius: 32px;
+        overflow: hidden;
+      }
+
+      .hire-content-number {
+        color: var(--color-black-90);
+      }
+
+      .hire-content-title {
+        margin-bottom: 16px;
+        font-size: clamp(20px, 2vw, 26px);
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+      }
+
+      .hire-content-desc {
+        margin-bottom: 18px;
+        color: var(--color-black-70);
+      }
+
+      .hire-content-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 428px;
+      }
+
+      .hire-content-item {
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        background-color: var(--color-white);
+      }
+
+      .hire-content-item-title {
+        margin-bottom: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-black-90) !important;
+      }
+
+      .hire-content-item-desc {
+        color: var(--color-black-70);
+      }
+
+      .question {
+        margin-bottom: 48px;
+        padding: 48px 0;
+        background-color: #faf9f8;
+      }
+
+      .question-title {
+        margin-bottom: 40px;
+      }
+
+      .question-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        max-width: 674px;
+        margin: 0 auto;
+      }
+
+      .question-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .question-item-btn span {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        text-align: left;
+        max-width: 558px;
+      }
+
+      .question-item-desc {
+        line-height: 20px;
+        max-width: 558px;
+        color: var(--color-black-70);
+      }
+
+      .question-btn {
+        padding: 0;
+      }
+
+      .post-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+
+      .post-header-btn {
+        width: fit-content;
+      }
+
+      .post-list {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        justify-content: center;
+        gap: 40px 34px;
+      }
+
+      .post-list-item-wrapper {
+        display: block;
+        text-decoration: none !important;
+        color: var(--color-black-90) !important;
+      }
+
+      .post-list-item {
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px 0px #000e3312;
+        background-color: var(--color-white);
+        overflow: clip;
+      }
+
+      .post-list-item-img {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 284 / 160;
+      }
+
+      .post-list-item-img-content {
+        width: 100%;
+        height: 100%;
+      }
+
+      .post-list-item-badge {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        display: block;
+        padding: 4px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--color-primary);
+        background-color: #fae0be;
+        color: var(--color-primary);
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .post-list-item-detail {
+        padding: 16px;
+      }
+
+      .post-list.--insight .post-list-item-detail {
+        padding: 20px 16px;
+      }
+
+      .post-list-item-detail-head {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 16px;
+      }
+
+      .post-list-item-title {
+        display: -webkit-box;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.25;
+      }
+
+      .post-list.--insight .post-list-item-title {
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
+      }
+
+      .post-list-item-price {
+        position: relative;
+        display: block;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.25;
+        color: var(--color-green);
+      }
+
+      .post-list-item-detail-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .post-list-item-date,
+      .post-list-item-place {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .post-list-item-date > p,
+      .post-list-item-place > p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.25;
+        color: var(--color-black-70);
+      }
+
+      .culture {
+        margin-bottom: 48px;
+      }
+
+      .culture-banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 642px;
+        margin: 0 auto;
+        aspect-ratio: 9 / 16;
+        border-radius: 32px;
+        padding: 44px 24px 24px;
+        background: url('https://rmkcdn.successfactors.com/0da85466/ee6cccb2-e18c-4848-ae4f-d.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .culture-title {
+        margin-bottom: 8px;
+        max-width: 468px;
+        color: var(--color-white) !important;
+        font-weight: 700;
+      }
+
+      .culture-desc {
+        margin-bottom: 32px;
+        max-width: 468px;
+        color: var(--color-white);
+        text-wrap: balance;
+        text-align: center;
+      }
+
+      .culture-btn {
+        max-width: 176px;
+      }
+
+      .git {
+        margin-bottom: 48px;
+      }
+
+      .git-title {
+        margin-bottom: 14px;
+      }
+
+      .git-desc {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .git-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .git-item {
+        text-align: center;
+      }
+
+      .git-item:nth-child(1) {
+        flex-basis: 362px;
+      }
+
+      .git-item:nth-child(2) {
+        flex-basis: 200px;
+      }
+
+      .git-item:nth-child(3) {
+        flex-basis: 290px;
+      }
+
+      .git-item-img {
+        max-width: 46px;
+        aspect-ratio: 1;
+        margin: 0 auto 10px;
+      }
+
+      .git-item-title {
+        margin-bottom: 22px;
+        color: var(--color-black-70);
+      }
+
+      .git-item-desc {
+        text-decoration: none;
+        color: var(--color-primary);
+      }
+
+      .c-footer {
+        padding: 32px 16px;
+      }
+
+      .footer-logo {
+        height: 107px;
+        max-width: 152px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 56px;
+        margin-bottom: 32px;
+      }
+
+      .footer-menu-title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+      .footer-menu-title > h1 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-black-30);
+      }
+      .footer-menu-title-line {
+        flex: 1;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        row-gap: 24px;
+      }
+
+      .footer-cat {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+      }
+
+      .outershell a.footer-cat-title {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--color-primary);
+        line-height: 1.2;
+      }
+
+      .footer-list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        margin-top: 16px;
+      }
+
+      .outershell .footer-list-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 200px;
+        width: fit-content;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 12px;
+        color: #8d8d8d !important;
+        line-height: 1.6;
+      }
+      .outershell .footer-list-title:hover {
+        text-decoration: underline;
+      }
+
+      .outershell .footer-list-btn {
+        width: fit-content;
+        max-width: none;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 32px;
+      }
+
+      .footer-social-item > a {
+        display: block;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+
+      .footer-bottom * {
+        font-size: 12px;
+      }
+
+      .footer-bottom a {
+        display: block;
+        color: var(--color-primary);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-bottom-left {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px 10px;
+        font-weight: 700;
+        color: #8d8d8d !important;
+      }
+
+      .footer-line {
+        display: flex;
+      }
+      .footer-line-item {
+        flex: 1;
+        height: 6px;
+        background-color: #ffc629;
+      }
+      .footer-line-item.--center {
+        flex: 2;
+        background-color: var(--color-primary);
+      }
+
+      @media screen and (min-width: 480px) {
+        .banner {
+          justify-content: center;
+          max-height: 536px;
+          aspect-ratio: 16 / 9;
+          padding: 24px;
+          background-image: url('https://rmkcdn.successfactors.com/0da85466/6097c2d1-9bd3-4212-84b3-a.jpg');
+          background-position: center;
+        }
+
+        .banner-subtitle {
+          max-width: 472px;
+          font-size: 18px;
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          justify-content: flex-start;
+        }
+
+        .culture-banner {
+          align-items: flex-start;
+          justify-content: center;
+          width: 100%;
+          height: 100vh;
+          max-height: 378px;
+          margin: 0;
+          padding: 24px 64px;
+          background-image: url('https://rmkcdn.successfactors.com/0da85466/9ed47a63-f989-40c9-af38-a.png');
+        }
+
+        .culture-title {
+          color: var(--color-black-90) !important;
+        }
+
+        .culture-desc {
+          color: var(--color-black-70);
+          text-align: left;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .hire-item {
+          flex-direction: row;
+        }
+        .hire-item:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        .hire-img {
+          flex-basis: 553px;
+        }
+
+        .hire-content {
+          flex-basis: 468px;
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .footer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        .footer-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+
+        .post-list:not(.--highlight-style) {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button class="c-btn c-btn--primary back-top-btn js-back-top-btn">
+        <img src="https://rmkcdn.successfactors.com/feaf7fda/b165550f-8290-4521-9b99-4.svg" alt="" />
+      </button>
+
+      <section class="banner">
+        <div class="banner-content">
+          <h1 class="banner-title">Empower Your Professional Growth</h1>
+          <h2 class="banner-subtitle">
+            Explore the answers to your questions about Danamoners' hiring process and our programs here
+          </h2>
+        </div>
+      </section>
+
+      <section class="hire">
+        <h1 class="c-section-title --center hire-title">Inside Our Hiring Process</h1>
+        <p class="hire-desc">
+          Danamon commits to offering the next Danamoners candidates a transparent recruitment process and preparing for
+          their passions and heart calling
+        </p>
+        <ul class="c-list-nostyle hire-list">
+          <li class="hire-item">
+            <div class="hire-img c-media-cover">
+              <img src="https://rmkcdn.successfactors.com/0da85466/0f442c6e-0560-4b97-9403-d.png" alt="" />
+            </div>
+            <div class="hire-content">
+              <span class="hire-content-number">01</span>
+              <h2 class="hire-content-title">CV Screening</h2>
+              <p class="hire-content-desc">
+                The HR teams will qualify your abilities following the position you applied for after submitting the
+                required documents. Make sure you can qualify for the next stage.
+              </p>
+              <ul class="c-list-nostyle hire-content-list">
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Job Requirements</h3>
+                  <p class="hire-content-item-desc">
+                    HR will ensure that your CV matches the competencies required for the position
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Candidate Selection</h3>
+                  <p class="hire-content-item-desc">
+                    If your CV matches the position sought, you will go to the next step
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="hire-item">
+            <div class="hire-img c-media-cover">
+              <img src="https://rmkcdn.successfactors.com/0da85466/ea3e71ea-5907-4d5c-b222-5.png" alt="" />
+            </div>
+            <div class="hire-content">
+              <span class="hire-content-number">02</span>
+              <h2 class="hire-content-title">Online Test (for a certain level)</h2>
+              <p class="hire-content-desc">
+                This test is specifically for some positions and levels. Here are the things you need to prepare before
+                starting the test.
+              </p>
+              <ul class="c-list-nostyle hire-content-list">
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Read Instructions</h3>
+                  <p class="hire-content-item-desc">
+                    Before starting the test, check the detailed information regarding the test mechanism
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Preparation</h3>
+                  <p class="hire-content-item-desc">
+                    Find other online tests and learn about the competencies in the position and bank
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Honesty and Integrity</h3>
+                  <p class="hire-content-item-desc">
+                    Answer the questions honestly, especially on the personality test
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="hire-item">
+            <div class="hire-img c-media-cover">
+              <img src="https://rmkcdn.successfactors.com/0da85466/3a13681c-fe0f-41c3-bcf8-2.png" alt="" />
+            </div>
+            <div class="hire-content">
+              <span class="hire-content-number">03</span>
+              <h2 class="hire-content-title">Competency Based Interview by HR & User</h2>
+              <p class="hire-content-desc">
+                The interview process focuses on evaluating candidates who match Danamoners' qualifications. The
+                following are things that you need.
+              </p>
+              <ul class="c-list-nostyle hire-content-list">
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Prepare Yourself</h3>
+                  <p class="hire-content-item-desc">
+                    Practice introducing yourself in a professional and presentable manner
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Pay Attention to Attitude</h3>
+                  <p class="hire-content-item-desc">Make an attractive, honest, and polite impression on the user</p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Be Proactive</h3>
+                  <p class="hire-content-item-desc">
+                    Ask questions if you are still unsure about the user's explanation
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="hire-item">
+            <div class="hire-img c-media-cover">
+              <img src="https://rmkcdn.successfactors.com/0da85466/1b1b51f6-b70b-49d4-b377-2.png" alt="" />
+            </div>
+            <div class="hire-content">
+              <span class="hire-content-number">04</span>
+              <h2 class="hire-content-title">Know Your Employee</h2>
+              <p class="hire-content-desc">
+                Know Your Employee (KYE) is a framework that Danamon use to understand and verify the identity,
+                background, and credentials of the candidate.
+              </p>
+              <ul class="c-list-nostyle hire-content-list">
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Provide Accurate Information</h3>
+                  <p class="hire-content-item-desc">
+                    You must submit valid personal identification and accurate details about your education and
+                    employment history
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Consent to Background Checks</h3>
+                  <p class="hire-content-item-desc">
+                    You need to agree and cooperate with comprehensive background checks, including criminal record and
+                    reference verification
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Verify Credentials</h3>
+                  <p class="hire-content-item-desc">
+                    You should provide verifiable proof of their qualifications, certifications, and any other
+                    credentials required for the position
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="hire-item">
+            <div class="hire-img c-media-cover">
+              <img src="https://rmkcdn.successfactors.com/0da85466/c2401b29-45bd-4829-a462-5.png" alt="" />
+            </div>
+            <div class="hire-content">
+              <span class="hire-content-number">05</span>
+              <h2 class="hire-content-title">Medical Check Up</h2>
+              <p class="hire-content-desc">
+                A medical check-up is needed to determine the condition or history of the disease you have suffered
+                during your employment. Here's what you should know.
+              </p>
+              <ul class="c-list-nostyle hire-content-list">
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Get Enough Rest</h3>
+                  <p class="hire-content-item-desc">
+                    Give yourself enough rest and sleep to keep your blood pressure in check
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Avoid Eating Before the Medical Check-Up</h3>
+                  <p class="hire-content-item-desc">
+                    Follow fasting instructions, usually avoiding food for 8-12 hours, to ensure accurate test results
+                  </p>
+                </li>
+                <li class="hire-content-item">
+                  <h3 class="hire-content-item-title">Tell Your Health Concerns</h3>
+                  <p class="hire-content-item-desc">
+                    If you are feeling tired, anxious, or depressed, you should tell the doctor before the medical
+                    check-up
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="question">
+        <h1 class="c-section-title --center question-title">Questions Related to Danamoners</h1>
+        <div class="js-tab-nav">
+          <div class="tab-nav">
+            <ul class="c-list-nostyle tab-nav-list">
+              <li class="tab-nav-item">
+                <button
+                  type="button"
+                  class="c-btn c-btn--transparent tab-nav-btn js-tab-nav-btn is-active"
+                  data-target="tabQuestion1"
+                >
+                  Management Trainee
+                </button>
+              </li>
+              <li class="tab-nav-item">
+                <button
+                  type="button"
+                  class="c-btn c-btn--transparent tab-nav-btn js-tab-nav-btn"
+                  data-target="tabQuestion2"
+                >
+                  Professional
+                </button>
+              </li>
+              <li class="tab-nav-item">
+                <button
+                  type="button"
+                  class="c-btn c-btn--transparent tab-nav-btn js-tab-nav-btn"
+                  data-target="tabQuestion3"
+                >
+                  Internship
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div id="tabQuestion1" class="js-tab-nav-content is-active">
+            <div class="question-content js-loadmore" data-show="6">
+              <ul class="c-list-nostyle question-list js-loadmore-list">
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>How many times does the Danamon Bankers Trainee program open in a year?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          The Danamon Bankers Trainee program currently opens twice a year. However, it is possible to
+                          change.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>How long is the Danamon Bankers Trainee service period?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          The trainee period is 1 year followed by 2 years of role placement.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span
+                      >Does previous IT project experience determine the Danamon Technology Trainee program
+                      selection?</span
+                    >
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          No, the selection does not determine previous IT project experience.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span
+                      >Is it possible for me to choose my placement area in the Danamon Technology Trainee
+                      program?</span
+                    >
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          No, the placement is chosen based on the needs of each division.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Will the participants receive comprehensive training in various IT fields?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">Yes, comprehensive IT training will be provided.</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>How long is the Danamon Technology Trainee service period?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Trainee period is 1 year followed by 2 years of role placement.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --more">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg" alt="" />
+                <span>View More</span>
+              </button>
+              <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --less">
+                <img
+                  style="transform: rotate(180deg)"
+                  src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg"
+                  alt=""
+                />
+                <span>View Less</span>
+              </button>
+            </div>
+          </div>
+          <div id="tabQuestion2" class="js-tab-nav-content">
+            <div class="question-content js-loadmore" data-show="6">
+              <ul class="c-list-nostyle question-list js-loadmore-list">
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>How do I apply for a job at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          You can apply for a job by visiting careers.danamon.co.id, creating an account, filling out
+                          your personal data, uploading your CV and documents, searching for a suitable position, and
+                          then clicking Apply.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>What are the required documents that need to be prepared to apply at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Required documents usually include an updated CV, cover letter, and other supporting documents
+                          such as certificates, recommendation letters, and portfolios if relevant to the position
+                          applied for.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Does Danamon have an internship program?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Yes, Danamon has an internship program for students or fresh graduates who want to gain work
+                          experience. Internship information can be found on the Internship page.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Is there any test during the selection process at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Depending on the position applied for, the selection process at Danamon may include online
+                          tests, case studies, or technical tests related to the job.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Is the interview conducted online or offline?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          The interview can be conducted online or offline, according to the accessibility and needs of
+                          a particular position.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>How does Danamon assess candidates?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          The assessment is based on qualifications, experience, skills, and compatibility with
+                          Danamon's corporate values of BISA (Collaborate, Integrity, Serve, and Adaptive). This process
+                          involves CV review, interviews, test results that may be given during selection, and the Know
+                          Your Employee (KYE) assessment process.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Are there any career advancement opportunities at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Danamon is committed to employee career development through training programs, mentoring, and
+                          job promotion. We support employees who want to continue learning and growing within the
+                          company.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>What should I do if I do not pass the selection process at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          If you are not selected, we recommend looking for other opportunities at Danamon or other
+                          opportunities that match your qualifications. You can also ask for feedback from the
+                          recruitment team to understand the improvement area.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Is there any cost charged during the recruitment process at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Danamon never charges any fees for conducting the recruitment process. Be careful of fraud on
+                          behalf of Danamon.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Can I apply for multiple positions at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          You can apply to several positions that match your qualifications.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Has Danamon implemented hybrid work?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Yes, Danamon has currently implemented hybrid working (work from home) provisions based on
+                          each department and applicable company regulations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span
+                      >I have a reference candidate for an available job vacancy; can I recommend the candidate?</span
+                    >
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          You can recommend candidates who match the qualifications of the vacancy by submitting a link
+                          to the vacancy position on careers.danamon.co.id.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>What qualifications does Danamon look for in a candidate?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Danamon looks for candidates who have specific qualifications listed in each job announcement,
+                          but Danamon values relevant experience, educational background, technical skills, and culture
+                          related to Danamon's value of BISA (Collaborate, Integrity, Serve, and Adaptive). This process
+                          involves CV review, interviews, and test results during selection.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Where can I get information about job vacancies at Danamon?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          In addition to this career website, you can find job vacancies through Danamon's official
+                          LinkedIn and Jobstreet accounts.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Are there opportunities to work abroad?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Yes, there is a talent swap program with a certain duration for selected Danamon employees to
+                          work in various countries for MUFG Group companies.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --more">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg" alt="" />
+                <span>View More</span>
+              </button>
+              <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --less">
+                <img
+                  style="transform: rotate(180deg)"
+                  src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg"
+                  alt=""
+                />
+                <span>View Less</span>
+              </button>
+            </div>
+          </div>
+          <div id="tabQuestion3" class="js-tab-nav-content">
+            <div class="question-content js-loadmore" data-show="6">
+              <ul class="c-list-nostyle question-list js-loadmore-list">
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>What is the difference between a DAP and a Regular Internship?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          DAP is a Kampus Merdeka learning program (training, leadership camp, hands-on projects, &
+                          daily tasks), and Regular Internship is a learning experience in a division including hands-on
+                          projects (according to the division's needs) and daily tasks.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>What will be taught in the DAP training?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          The DAP training will be taught about bank-wide learning, management, and leadership.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Where is the DAP training held?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">The training is held at Danamon Corporate University, Ciawi.</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Does the DAP Program and Reguler Internship receive an allowance?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Yes, program participants will receive an allowance according to applicable regulations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Can the DAP and Reguler Internship program work in various cities?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Yes, interns can work in all Danamon regions based on the division's needs and participants'
+                          domicile.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="question-item js-dropdown js-loadmore-item">
+                  <button class="c-btn c-btn--transparent c-btn--dropdown question-item-btn js-dropdown-btn">
+                    <span>Are there any accommodations during the in-class training in Ciawi?</span>
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/4b46da00-5df2-4206-b341-3.svg" alt="" />
+                  </button>
+                  <div class="c-dropdown-content js-dropdown-content">
+                    <div>
+                      <div class="c-dropdown-content-inner">
+                        <p class="question-item-desc">
+                          Yes, all trainees are provided with accommodation such as staying at Danamon's Corporate
+                          Campus during Phase 1, dormitory, 3x daily meals, snacks, and laundry.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --more">
+                <img src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg" alt="" />
+                <span>View More</span>
+              </button>
+              <button class="c-btn c-btn--transparent question-btn is-hide js-loadmore-btn --less">
+                <img
+                  style="transform: rotate(180deg)"
+                  src="https://rmkcdn.successfactors.com/feaf7fda/e956f031-0085-4a67-851f-9.svg"
+                  alt=""
+                />
+                <span>View Less</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="c-section-item">
+        <div class="post-header">
+          <h1 class="c-section-title post-header-title">Recommended Insights</h1>
+        </div>
+        <ul class="js-slider" data-responsive="true" data-slide-to-scroll="4" data-slide-to-show="4">
+          <li>
+            <div class="post-list-item">
+              <a href="#" class="post-list-item-wrapper">
+                <div class="post-list-item-img">
+                  <span class="post-list-item-badge">Global Exposure</span>
+                  <div class="post-list-item-img-content c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/a949fed9-fc64-4962-9b02-0.png" alt="" />
+                  </div>
+                </div>
+                <div class="post-list-item-detail">
+                  <div class="post-list-item-detail-head">
+                    <h1 class="post-list-item-title">
+                      Unhas Career Center and Bank Danamon Held Virtual Campus Hiring
+                    </h1>
+                  </div>
+                  <div class="post-list-item-detail-body">
+                    <div class="post-list-item-date">
+                      <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+                      <p>March 4, 2024</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="post-list-item">
+              <a href="#" class="post-list-item-wrapper">
+                <div class="post-list-item-img">
+                  <span class="post-list-item-badge">Global Exposure</span>
+                  <div class="post-list-item-img-content c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/7a5abf17-9e0b-43f3-bf70-d.png" alt="" />
+                  </div>
+                </div>
+                <div class="post-list-item-detail">
+                  <div class="post-list-item-detail-head">
+                    <h1 class="post-list-item-title">Bank Danamon Offers Job Vacancies for D3-S1, Apply Now</h1>
+                  </div>
+                  <div class="post-list-item-detail-body">
+                    <div class="post-list-item-date">
+                      <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+                      <p>March 12, 2023</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="post-list-item">
+              <a href="#" class="post-list-item-wrapper">
+                <div class="post-list-item-img">
+                  <span class="post-list-item-badge">Global Exposure</span>
+                  <div class="post-list-item-img-content c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/19de8446-d40d-4a01-8790-5.png" alt="" />
+                  </div>
+                </div>
+                <div class="post-list-item-detail">
+                  <div class="post-list-item-detail-head">
+                    <h1 class="post-list-item-title">
+                      Bank Danamon Indonesia Representative Visited UNAND Career & Counseling Center Office
+                    </h1>
+                  </div>
+                  <div class="post-list-item-detail-body">
+                    <div class="post-list-item-date">
+                      <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+                      <p>February 18, 2023</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="post-list-item">
+              <a href="#" class="post-list-item-wrapper">
+                <div class="post-list-item-img">
+                  <span class="post-list-item-badge">Global Exposure</span>
+                  <div class="post-list-item-img-content c-media-cover">
+                    <img src="https://rmkcdn.successfactors.com/feaf7fda/21bd6a1e-ced0-4d42-a59d-b.png" alt="" />
+                  </div>
+                </div>
+                <div class="post-list-item-detail">
+                  <div class="post-list-item-detail-head">
+                    <h1 class="post-list-item-title">
+                      PT Bank Danamon Open Career Opportunities with Danamon Banking Officer (DBO) Program
+                    </h1>
+                  </div>
+                  <div class="post-list-item-detail-body">
+                    <div class="post-list-item-date">
+                      <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+                      <p>June 15, 2022</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <!-- <ul class="c-list-nostyle post-list --insight">
+          
+        </ul> -->
+      </section>
+
+      <section class="culture">
+        <div class="culture-banner">
+          <h1 class="c-section-title culture-title">Journey of Danamoners</h1>
+          <p class="culture-desc">
+            Find learning opportunities in a collaborative, inclusive, professional work environment. Let's GROW with
+            us!
+          </p>
+          <a href="https://careers.danamon.co.id/content/Life-as-Danamoners/" class="c-btn c-btn--primary culture-btn"
+            >Life as Danamoners</a
+          >
+        </div>
+      </section>
+
+      <!-- <section class="git">
+        <h1 class="c-section-title --center git-title">Get in Touch</h1>
+        <p class="git-desc">
+          We are here to help your questions or concerns about our requirements, jobs, and information.
+        </p>
+        <ul class="c-list-nostyle git-list">
+          <li class="git-item">
+            <div class="git-item-img c-media-cover">
+              <img src="https://via.placeholder.com/48" alt="" />
+            </div>
+            <p class="git-item-title">Headquarters</p>
+            <a href="#" class="git-item-desc">
+              Menara Bank Danamon<br />Jl. HR Rasuna Said Blok C No. 10 Kelurahan Karet, Kecamatan Setiabudi, Jakarta
+              Selatan
+            </a>
+          </li>
+          <li class="git-item">
+            <div class="git-item-img c-media-cover">
+              <img src="https://via.placeholder.com/48" alt="" />
+            </div>
+            <p class="git-item-title">Call Center</p>
+            <a href="#" class="git-item-desc"> Hello Danamon<br />1-500-090</a>
+          </li>
+          <li class="git-item">
+            <div class="git-item-img c-media-cover">
+              <img src="https://via.placeholder.com/48" alt="" />
+            </div>
+            <p class="git-item-title">Email</p>
+            <a href="#" class="git-item-desc"> hrtalent.acquisitions@danamon.co.id</a>
+          </li>
+        </ul>
+      </section> -->
+
+      <section class="c-footer">
+        <div class="footer-logo c-media-cover">
+          <img src="https://rmkcdn.successfactors.com/feaf7fda/6660e6e8-3bae-450e-aaef-d.png" alt="" />
+        </div>
+
+        <ul class="c-list-nostyle footer-menu">
+          <li class="footer-menu-item">
+            <ul class="c-list-nostyle footer-grid">
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/Life-as-Danamoners/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Life as Danamoners</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://careers.danamon.co.id/viewalljobs/" target="_blank" class="footer-cat-title"
+                      >Jobs</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/Professional-Hire/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Grow With Us</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Professional-Hire/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Professional Careers</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Danamon-Bankers-Trainee/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Management Trainee</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://careers.danamon.co.id/content/Internship/"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Internship Program</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://careers.danamon.co.id/content/Events-and-Insights/" class="footer-cat-title"
+                      >Event & Insight</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://careers.danamon.co.id/content/How-We-Hire/"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >How We Hire</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="footer-menu-item">
+            <ul class="c-list-nostyle footer-grid">
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://www.danamon.co.id/id/Tentang-Danamon" target="_blank" class="footer-cat-title"
+                      >Tentang Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Profil Bank Danamon</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Informasi</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="http://careers.danamon.co.id/" target="_blank" class="footer-list-title">Karir</a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/InformasiInvestor"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Investor</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://www.danamon.co.id/" target="_blank" class="footer-list-title">FAQ</a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/SBDK"
+                          target="_blank"
+                          class="footer-list-title"
+                          >Suku Bunga Dasar Kredit</a
+                        >
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://www.danamon.co.id/id/Personal" target="_blank" class="footer-list-title"
+                          >Bandingkan Produk</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/Hubungi-Kami"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Hubungi Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a href="tel:1500090" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/8a503906-3d56-46e3-983e-a.svg" alt="" />
+                          <span>Hello Danamon 1-500-090</span>
+                        </a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="mailto:hellodanamon@danamon.co.id" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/15734b26-e98f-491a-a9e3-7.svg" alt="" />
+                          <span>hellodanamon@danamon.co.id</span>
+                        </a>
+                      </li>
+                      <li class="footer-list-item">
+                        <a href="https://api.whatsapp.com/send?phone=6285811500090" class="footer-list-title">
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/ed9eecac-724e-49b5-88ed-2.svg" alt="" />
+                          <span>0 858-1150-0090</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5" target="_blank" class="footer-cat-title"
+                      >Kantor Pusat</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <span class="footer-list-title">
+                          Jl. H. R. Rasuna Said C No.10 Karet Kuningan, Setiabudi, Jakarta Selatan, DKI Jakarta 12940
+                        </span>
+                        <a
+                          href="https://maps.app.goo.gl/NM87J1ttxogjnnNs5"
+                          target="_blank"
+                          class="c-btn c-btn--transparent footer-list-btn"
+                        >
+                          <span>Get Direction</span>
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/6e125842-dd4a-4103-8509-b.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer-grid-item">
+                <ul class="c-list-nostyle footer-cat">
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Perusahaan Induk</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/MUFG"
+                          target="_blank"
+                          class="footer-list-title"
+                        >
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/99da9ae5-ba2b-4b95-b70c-2.png" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="footer-cat-item">
+                    <a
+                      href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                      target="_blank"
+                      class="footer-cat-title"
+                      >Ekosistem Kami</a
+                    >
+                    <ul class="c-list-nostyle footer-list">
+                      <li class="footer-list-item">
+                        <a
+                          href="https://www.danamon.co.id/id/Tentang-Danamon/ProfilPerusahaan/Anak-Perusahaan"
+                          target="_blank"
+                          class="footer-list-title"
+                        >
+                          <img src="https://rmkcdn.successfactors.com/feaf7fda/d137d2fc-51e9-45a6-9155-0.png" alt="" />
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="c-list-nostyle footer-social">
+          <li class="footer-social-item">
+            <a href="https://www.facebook.com/danamonindonesia" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/a5dc85c9-8203-42b4-9865-9.svg" alt="Facebook" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://twitter.com/danamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/81e743f5-ff3c-4d09-b4a6-0.svg" alt="Twitter" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://instagram.com/mydanamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/30eefa21-760f-4c02-be1b-5.svg" alt="Instagram" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://www.linkedin.com/company/bank-danamon-indonesia/" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/fae3bbec-a8d0-4f75-a80c-5.svg" alt="LinkedIn" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://www.tiktok.com/@bankdanamon" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/40bf6c8b-a261-45c6-ac40-0.svg" alt="TikTok" />
+            </a>
+          </li>
+          <li class="footer-social-item">
+            <a href="https://youtube.com/bankdanamonid" target="_blank">
+              <img src="https://rmkcdn.successfactors.com/feaf7fda/33057531-4d43-45fd-ad71-3.svg" alt="YouTube" />
+            </a>
+          </li>
+        </ul>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <p>
+              PT Bank Danamon Indonesia berizin dan diawasi oleh Otoritas Jasa Keuangan serta merupakan peserta
+              penjaminan LPS
+            </p>
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/98445091-49d7-4364-8c11-2.png" alt="" />
+          </div>
+        </div>
+
+        <div class="footer-line">
+          <div class="footer-line-item"></div>
+          <div class="footer-line-item --center"></div>
+          <div class="footer-line-item"></div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+      const initTabNav = () => {
+        const tabBtn = document.querySelectorAll('.js-tab-nav-btn');
+
+        tabBtn.forEach((btn) => {
+          const target = btn.dataset.target;
+          const targetContent = document.getElementById(target);
+
+          btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const navParent = e.target.closest('.js-tab-nav');
+            const activeTabBtn = navParent.querySelector('.js-tab-nav-btn.is-active');
+            const activeTabContent = navParent.querySelector('.js-tab-nav-content.is-active');
+            const btnLess = document.querySelectorAll('.js-loadmore-btn.--less');
+
+            activeTabBtn?.classList.remove('is-active');
+            activeTabContent?.classList.remove('is-active');
+
+            e.currentTarget?.classList.add('is-active');
+            targetContent?.classList.add('is-active');
+
+            btnLess.forEach((btn) => {
+              btn.click();
+            });
+          });
+        });
+      };
+
+      const initDropdown = () => {
+        const dropdownBtns = document.querySelectorAll('.js-dropdown-btn');
+
+        dropdownBtns.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            const dropdownParent = e.currentTarget.closest('.js-dropdown');
+            if (dropdownParent.classList.contains('is-active')) dropdownParent.classList.remove('is-active');
+            else dropdownParent.classList.add('is-active');
+          });
+        });
+      };
+
+      const initLoadMore = () => {
+        const loadMore = document.querySelectorAll('.js-loadmore');
+
+        loadMore.forEach((el) => {
+          const dataShow = parseInt(el.dataset.show);
+          const dataList = [...el.querySelectorAll('.js-loadmore-item')];
+          const btnMore = el.querySelector('.js-loadmore-btn.--more');
+          const btnLess = el.querySelector('.js-loadmore-btn.--less');
+
+          if (dataList.length > dataShow) btnMore.classList.remove('is-hide');
+
+          dataList.slice(0, dataShow).forEach((item) => {
+            item.style.display = 'block';
+          });
+
+          btnMore.addEventListener('click', () => {
+            dataList.slice(0, dataList.length).forEach((item) => {
+              item.style.display = 'block';
+              btnMore.classList.add('is-hide');
+              btnLess.classList.remove('is-hide');
+            });
+          });
+
+          btnLess.addEventListener('click', () => {
+            dataList.slice(dataShow, dataList.length).forEach((item) => {
+              item.style.display = 'none';
+              btnMore.classList.remove('is-hide');
+              btnLess.classList.add('is-hide');
+            });
+          });
+        });
+      };
+
+      const initBackTopBtn = () => {
+        const btn = document.querySelector('.js-back-top-btn');
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      };
+
+      const initSlider = () => {
+        $('.js-slider').each(function (index, element) {
+          const dataSlideShow = $(this).data('slide-to-show') || null;
+          const dataSlideScroll = $(this).data('slide-to-scroll') || null;
+          const dataResponsive = $(this).data('responsive');
+
+          $(this).slick({
+            infinite: false,
+            slidesToShow: dataSlideShow ? dataSlideShow : 5,
+            slidesToScroll: dataSlideScroll ? dataSlideScroll : 5,
+
+            responsive: dataResponsive
+              ? [
+                  {
+                    breakpoint: 1200,
+                    settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 3
+                    }
+                  },
+                  {
+                    breakpoint: 1024,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 2
+                    }
+                  },
+                  {
+                    breakpoint: 640,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                ]
+              : [],
+            prevArrow:
+              '<button type="button" class="slick-prev"><img src="https://rmkcdn.successfactors.com/feaf7fda/9f752b59-f580-48db-be0a-9.svg" /></button>',
+            nextArrow:
+              '<button type="button" class="slick-next"><img src="https://rmkcdn.successfactors.com/feaf7fda/27695184-a2c8-4d81-a0a6-8.svg" /></button>'
+          });
+        });
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initTabNav();
+        initDropdown();
+        initLoadMore();
+        initBackTopBtn();
+        initSlider();
+      });
+    </script>
+  </body>
+</html>

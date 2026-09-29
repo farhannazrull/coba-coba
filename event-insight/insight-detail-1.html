@@ -1,0 +1,929 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  :root {
+    --color-primary: #E94E14;
+    --color-white: #ffffff;
+    --color-green: #056047;
+    --color-black-90: #252525;
+    --color-black-70: #565656;
+    --color-black-30: #b6b6b6;
+    --fs-section-title: 36px;
+  }
+
+  /* overide default classes styilng */
+  html body.coreCSB,
+  body {
+    font-family: 'Inter', sans-serif !important;
+  }
+
+  html body.coreCSB .btn,
+  body .btn {
+    font-family: 'Roboto', sans-serif !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  .outershell a.c-btn--primary {
+    color: var(--color-white) !important;
+  }
+  .outershell a.c-btn--primary:hover {
+    text-decoration: none;
+    filter: brightness(90%);
+  }
+  .outershell a.c-btn--transparent {
+    color: var(--color-primary) !important;
+  }
+  .outershell a.c-btn--transparent:hover {
+    text-decoration: underline;
+  }
+
+  #innershell {
+    width: 94%;
+    max-width: 1238px;
+  }
+  .inner {
+    max-width: none;
+  }
+  #content > .inner > div {
+    margin-bottom: 24px;
+  }
+  .searchwell {
+    padding: 24px;
+    border-radius: 32px;
+  }
+  .searchwell > form {
+    max-width: 1064px;
+    margin: 0 auto !important;
+  }
+  .searchwell > form > .container-fluid {
+    padding: 0;
+  }
+
+  #content ul,
+  #content ol {
+    list-style-position: initial;
+    padding-left: 0;
+  }
+  /* ------------------------------- */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .c-section-title {
+    font-size: clamp(24px, 2.65vw, 36px);
+    font-weight: 700;
+    color: var(--color-black-90) !important;
+    line-height: 1.2;
+  }
+  .c-section-title .--highlight {
+    color: var(--color-green) !important;
+  }
+
+  .c-section-item {
+    margin-bottom: 48px;
+  }
+
+  .c-list-nostyle {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .c-btn {
+    outline: none;
+    border: 1px solid transparent !important;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    line-height: 1.5;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif !important;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .c-btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  .c-btn--primary:hover {
+    filter: brightness(90%);
+  }
+
+  .c-btn--transparent {
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+  .c-btn--transparent:hover {
+    text-decoration: underline;
+  }
+
+  .c-btn--banner {
+    width: fit-content;
+    padding: 8px 12px;
+    margin-top: 20px;
+  }
+
+  .c-btn--dropdown {
+    max-width: none;
+    justify-content: space-between;
+    padding: 16px;
+    font-weight: 700;
+    color: var(--color-black-90);
+  }
+  .c-btn--dropdown:hover {
+    text-decoration: none;
+  }
+
+  .c-media-cover > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .c-media-contain > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .tab-nav {
+    overflow-x: auto;
+    margin-bottom: 40px;
+  }
+
+  .tab-nav-list {
+    display: flex;
+    gap: 32px;
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  .tab-nav-btn {
+    height: 100%;
+    border-radius: 0;
+    padding: 6px 10px;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-black-70);
+    line-height: 1.2;
+    cursor: pointer;
+  }
+  .tab-nav-btn:hover {
+    text-decoration: none;
+  }
+
+  .tab-nav-btn.is-active {
+    color: var(--color-primary);
+    border-bottom-color: var(--color-primary) !important;
+  }
+
+  .tab-nav-content {
+    display: none;
+  }
+  .tab-nav-content.is-active {
+    display: block;
+  }
+
+  .c-form-input {
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 1px solid #b6b6b6;
+    box-shadow: 0px 1px 0px 0px #0000001a;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-black-70) !important;
+  }
+  .c-form-input.--block {
+    width: 100%;
+  }
+  .c-form-input::placeholder {
+    color: #868686;
+  }
+
+  .c-dropdown-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: all 0.4s ease;
+  }
+  .c-dropdown-content > div {
+    overflow: hidden;
+  }
+  .c-dropdown-content-inner {
+    padding: 0 16px 16px;
+  }
+
+  .js-dropdown {
+    border-radius: 8px;
+    background-color: var(--color-white);
+    box-shadow: 0px 2px 10px 0px #000e3312;
+    transition: all 0.4s ease;
+  }
+  .js-dropdown.is-active {
+    background-color: #eeeeee;
+  }
+  .js-dropdown-btn {
+    transition: all 0.4s ease;
+  }
+  .js-dropdown.is-active .js-dropdown-btn {
+    padding-bottom: 6px;
+    color: var(--color-primary);
+  }
+  .js-dropdown.is-active .js-dropdown-content {
+    grid-template-rows: 1fr;
+  }
+
+  .js-loadmore-item {
+    display: none;
+  }
+  .js-loadmore-btn.is-hide {
+    display: none;
+  }
+
+  /* custom styling */
+  .back {
+    margin-bottom: 64px;
+  }
+
+  .back-btn {
+    width: fit-content;
+    max-width: none;
+    padding: 0;
+  }
+
+  .content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 85px;
+  }
+
+  .content-share {
+    /* position: sticky;
+        top: 40%; */
+    transform: translateY(150%);
+  }
+
+  .content-share-container {
+    padding: 12px 8px;
+  }
+
+  .content-share-title {
+    margin-bottom: 16px;
+    font-weight: 700;
+    color: var(--color-black-90);
+  }
+
+  .content-share-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .content-share-btn {
+    width: fit-content;
+    max-width: none;
+    padding: 0;
+  }
+
+  .content-article {
+    max-width: 1000px;
+  }
+
+  .content-article-title {
+    width: 80%;
+    max-width: 896px;
+    margin: 0 auto 24px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-black-90) !important;
+  }
+
+  .content-article-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin-bottom: 40px;
+  }
+
+  .content-article-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 2.5px;
+  }
+
+  .content-article-detail-item-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .content-article-detail-item-text {
+    color: var(--color-black-70);
+  }
+
+  .content-article-img {
+    aspect-ratio: 1000 / 494;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .content-article-desc {
+    padding: 16px 24px 0;
+  }
+
+  .content-article-desc > * {
+    color: var(--color-black-70);
+  }
+
+  .newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-height: 436px;
+    margin-bottom: 48px;
+    padding: 32px;
+    border-radius: 32px;
+    overflow: hidden;
+    background: url('https://via.placeholder.com/1238x436');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .newsletter-form {
+    max-width: 415px;
+  }
+
+  .newsletter-form > fieldset {
+    all: unset;
+  }
+
+  .newsletter-form-title {
+    margin-bottom: 8px;
+    color: var(--color-white) !important;
+  }
+
+  .newsletter-form-desc {
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--color-white);
+  }
+
+  .newsletter-form-btn {
+    max-width: 195px;
+    margin-top: 24px;
+  }
+
+  .post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .post-header-btn {
+    width: fit-content;
+  }
+
+  .post-list {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-content: center;
+    gap: 40px 34px;
+  }
+
+  .post-list-item {
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px 0px #000e3312;
+    background-color: var(--color-white);
+    overflow: clip;
+  }
+
+  .post-list.--highlight-style .post-list-item {
+    all: unset;
+  }
+
+  .post-list.--highlight-style .post-list-item-wrapper {
+    display: flex;
+    gap: 16px;
+    height: 100%;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-wrapper {
+    display: block;
+  }
+
+  .post-list-item-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 284 / 160;
+  }
+
+  .post-list.--highlight-style .post-list-item-img {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 210 / 120;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 620 / 350;
+    margin-bottom: 12px;
+  }
+
+  .post-list-item-img-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .post-list-item-badge {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    display: block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    border: 1px solid var(--color-primary);
+    background-color: #fae0be;
+    color: var(--color-primary);
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .post-list.--highlight-style .post-list-item-badge {
+    display: none;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-badge {
+    display: block;
+  }
+
+  .post-list-item-detail {
+    padding: 16px;
+  }
+
+  .post-list.--insight .post-list-item-detail {
+    padding: 20px 16px;
+  }
+
+  .post-list.--highlight-style .post-list-item-detail {
+    padding: 0;
+  }
+
+  .post-list-item-detail-head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-detail-head {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .post-list-item-title {
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .post-list.--insight .post-list-item-title {
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .post-list-item-price {
+    position: relative;
+    display: block;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--color-green);
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-price {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-price::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-20px, -50%);
+    width: 16px;
+    height: 1px;
+    background-color: #000;
+  }
+
+  .post-list-item-detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .post-list.--highlight-style .post-list-item:nth-child(1) .post-list-item-detail-body {
+    flex-direction: row;
+  }
+
+  .post-list-item-date,
+  .post-list-item-place {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .post-list-item-date > p,
+  .post-list-item-place > p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--color-black-70);
+  }
+
+  .c-footer {
+    padding: 32px 16px;
+  }
+
+  .footer-logo {
+    height: 107px;
+    max-width: 152px;
+    margin-bottom: 32px;
+  }
+
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    row-gap: 56px;
+    margin-bottom: 32px;
+  }
+
+  .footer-menu-title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .footer-menu-title > h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-black-30);
+  }
+  .footer-menu-title-line {
+    flex: 1;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #d9d9d9;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    row-gap: 24px;
+  }
+
+  .footer-cat {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .outershell a.footer-cat-title {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-primary);
+    line-height: 1.2;
+  }
+
+  .footer-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 16px;
+  }
+
+  .outershell .footer-list-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 200px;
+    width: fit-content;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12px;
+    color: #8d8d8d !important;
+    line-height: 1.6;
+  }
+  .outershell .footer-list-title:hover {
+    text-decoration: underline;
+  }
+
+  .outershell .footer-list-btn {
+    width: fit-content;
+    max-width: none;
+    padding: 0;
+    border: none;
+    font-size: 12px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .footer-social-item > a {
+    display: block;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+
+  .footer-bottom * {
+    font-size: 12px;
+  }
+
+  .footer-bottom a {
+    display: block;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 10px;
+    font-weight: 700;
+    color: #8d8d8d !important;
+  }
+
+  .footer-line {
+    display: flex;
+  }
+  .footer-line-item {
+    flex: 1;
+    height: 6px;
+    background-color: #ffc629;
+  }
+  .footer-line-item.--center {
+    flex: 2;
+    background-color: var(--color-primary);
+  }
+
+  @media screen and (min-width: 480px) {
+    .content-article-desc {
+      padding: 28px 36px 0;
+    }
+
+    .post-list:not(.--highlight-style) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: flex-start;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .content {
+      gap: 36px;
+    }
+
+    .content-article-title {
+      font-size: 32px;
+    }
+
+    .content-article-detail-item.--author {
+      margin-right: auto;
+    }
+
+    .content-article-desc {
+      padding: 36px 50px 0;
+    }
+
+    .newsletter {
+      justify-content: flex-end;
+      padding-right: 60px;
+    }
+
+    .post-list:not(.--highlight-style) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .post-list.--highlight-style {
+      gap: 34px 40px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .post-list.--highlight-style .post-list-item:nth-child(1) {
+      grid-row: span 3 / span 3;
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .content-article-title {
+      font-size: 40px;
+    }
+
+    .newsletter {
+      padding-right: 120px;
+    }
+
+    .post-list:not(.--highlight-style) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .footer-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<section class="back">
+  <button class="c-btn c-btn--transparent back-btn">
+    <img src="https://rmkcdn.successfactors.com/feaf7fda/de236ceb-2d33-4177-a252-3.svg" alt="" />
+    <span>Back</span>
+  </button>
+</section>
+
+<article class="content">
+  <aside class="content-share">
+    <div class="content-share-container">
+      <p class="content-share-title">Share</p>
+      <ul class="c-list-nostyle content-share-list">
+        <li class="content-share-item">
+          <button
+            type="button"
+            class="c-btn c-btn--transparent content-share-btn js-content-share-btn"
+            data-target="linkedin"
+            title="Share to LinkedIn"
+          >
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/5165676b-a6f9-46e2-a264-3.svg" alt="LinkedIn" />
+          </button>
+        </li>
+        <li class="content-share-item">
+          <button
+            type="button"
+            class="c-btn c-btn--transparent content-share-btn js-content-share-btn"
+            data-target="facebook"
+            title="Share to Facebook"
+          >
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/55263c5e-3429-43a6-b0ee-f.svg" alt="Facebook" />
+          </button>
+        </li>
+        <li class="content-share-item">
+          <button
+            type="button"
+            class="c-btn c-btn--transparent content-share-btn js-content-share-btn"
+            data-target="twitter"
+            title="Share to Twitter"
+          >
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/afea6b88-bf6f-4e76-afce-2.svg" alt="Twitter" />
+          </button>
+        </li>
+        <li class="content-share-item">
+          <button
+            type="button"
+            class="c-btn c-btn--transparent content-share-btn js-content-share-btn"
+            data-target="whatsapp"
+            title="Share to WhatsApp"
+          >
+            <img src="https://rmkcdn.successfactors.com/feaf7fda/3480cad4-0e10-4e2b-9e0c-4.svg" alt="WhatsApp" />
+          </button>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <section class="content-article">
+    <h1 class="content-article-title">Kick Off Danamon Innovation Race 2023: Better, Faster, and Stronger</h1>
+
+    <div class="content-article-detail">
+      <div class="content-article-detail-item --author">
+        <div class="content-article-detail-item-icon c-media-cover">
+          <img src="https://rmkcdn.successfactors.com/feaf7fda/372abeb2-9b05-42d6-a038-9.svg" alt="" />
+        </div>
+        <p class="content-article-detail-item-text">Jessica Jasmine Pratiwi Sumarsono</p>
+      </div>
+      <div class="content-article-detail-item --date">
+        <div class="content-article-detail-item-icon c-media-cover">
+          <img src="https://rmkcdn.successfactors.com/feaf7fda/8d38123a-7386-43d0-bb96-e.svg" alt="" />
+        </div>
+        <p class="content-article-detail-item-text">8 Juli 2023</p>
+      </div>
+      <div class="content-article-detail-item --duration">
+        <div class="content-article-detail-item-icon c-media-cover">
+          <img src="https://rmkcdn.successfactors.com/feaf7fda/652ee7c1-ddcf-4716-b69d-1.svg" alt="" />
+        </div>
+        <p class="content-article-detail-item-text">Read 8 Min</p>
+      </div>
+    </div>
+
+    <div class="content-article-img c-media-cover">
+      <img src="https://rmkcdn.successfactors.com/feaf7fda/4c062637-c397-4b4a-95d4-2.png" alt="" />
+    </div>
+
+    <div class="content-article-desc">
+      <p>
+        Bank Danamon held the Danamon Innovation Race (DIR). The event was to accommodate employees to convey ideas,
+        innovations and implementations.
+      </p>
+      <br />
+      <p>
+        The event is nuanced competence among employees, which is also a management support to explore and express the
+        potential of its employees.
+      </p>
+      <br />
+      <p>
+        Danamon's President Director, Daisuke Ejima, said that his party conducted a series of activities, from
+        training, internal and external mentoring, progress checkpoints, and a final presentation involving senior
+        management to the awarding ceremony.
+      </p>
+      <br />
+      <p>
+        "This year's DIR awarding ceremony was themed 'Better Faster Stronger' and was attended by management, work unit
+        leaders, mentors, facilitators, and employees as both participants and winners of the competition. During the
+        six months of competition, the participants were equipped with various relevant training, including design
+        thinking (innovation), project management, risk & governance, and presentation skills," he said in his written
+        statement on Monday (12/25/2023).
+      </p>
+      <br />
+      <p>
+        In addition, the participants were also provided with mentoring sessions with internal mentors and external
+        facilitators until the project was finally executed and implemented properly.
+      </p>
+      <br />
+      <p>
+        "My message to all employees is to never stop innovating and bringing changes that can support business growth
+        and company performance going forward," he said.
+      </p>
+      <br />
+      <p>
+        Danamon's Chief Human Capital, Evi Damayanti, advised more employees to participate in the Danamon Innovation
+        Race and collaborate with other work units.
+      </p>
+    </div>
+  </section>
+</article>
